@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotogrammi Coreani — Blog di recensioni kdrama</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #4a3f35;
+    --ink-muted: #9a8e84;
+    --paper: #f8f4ef;
+    --paper-warm: #f0e9df;
+    --paper-card: #fdfaf7;
+    --accent: #c0392b;
+    --accent-soft: #e8c5c0;
+    --accent-faint: #faf0ee;
+    --gold: #b8922a;
+    --gold-faint: #f7f0e0;
+    --border: rgba(26,20,16,0.12);
+    --border-soft: rgba(26,20,16,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .site-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .site-logo span {
+    color: var(--accent);
+  }
+
+  .site-nav {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .site-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .site-nav a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: end;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .hero-cta:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .hero-cta svg { width: 14px; height: 14px; }
+
+  .hero-featured {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    position: relative;
+  }
+
+  .hero-featured::before {
+    content: 'In evidenza';
+    position: absolute;
+    top: -11px;
+    left: 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 3px 10px;
+  }
+
+  .featured-img-placeholder {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: var(--paper-warm);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-img-placeholder::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(26,20,16,0.03) 10px,
+      rgba(26,20,16,0.03) 20px
+    );
+  }
+
+  .featured-img-label {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+
+  .featured-tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  .featured-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+
+  .featured-meta {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  .featured-score {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 2px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-divider h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── ARTICLE GRID ── */
+  .articles-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .article-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border-soft);
+    padding: 1.75rem;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .article-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26,20,16,0.1);
+    z-index: 2;
+  }
+
+  .card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--paper-warm);
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .card-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .card-excerpt {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+
+  .card-meta {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .card-score {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+
+  .card-score::before { content: '★ '; }
+
+  /* ── REVIEW FULL ARTICLE ── */
+  .review-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+  }
+
+  .review-header { margin-bottom: 2.5rem; }
+
+  .review-series {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-series::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .review-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .review-byline {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .byline-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .byline-info { font-size: 13px; }
+  .byline-name { font-weight: 500; color: var(--ink); }
+  .byline-date { color: var(--ink-muted); }
+
+  .score-bar {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--accent);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .score-item { text-align: center; }
+  .score-item-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2px; }
+  .score-item-val { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
+
+  .review-body { font-size: 16px; line-height: 1.85; color: var(--ink-soft); font-weight: 300; }
+  .review-body p { margin-bottom: 1.5rem; }
+
+  .review-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--ink);
+    margin: 2.5rem 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .review-body blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--accent-faint);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .review-body blockquote cite {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .highlight-box {
+    background: var(--gold-faint);
+    border: 1px solid rgba(184,146,42,0.2);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .highlight-box strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { padding-top: 0.5rem; }
+
+  .sidebar-block {
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+  }
+
+  .sidebar-title {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--ink-muted); }
+  .info-val { font-weight: 500; color: var(--ink); text-align: right; }
+
+  .final-verdict {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .verdict-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .verdict-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+
+  .verdict-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag-pill {
+    font-size: 11px;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tag-pill:hover { background: var(--ink); color: var(--paper); }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(248,244,239,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--paper);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-size: 13px;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+  .footer-links a { font-size: 12px; color: rgba(248,244,239,0.5); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.6s 0.1s ease both; }
+  .hero-desc { animation: fadeUp 0.6s 0.2s ease both; }
+  .hero-cta { animation: fadeUp 0.6s 0.3s ease both; }
+  .hero-featured { animation: fadeUp 0.6s 0.2s ease both; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-featured { display: none; }
+    .articles-grid { grid-template-columns: 1fr 1fr; }
+    .review-section { grid-template-columns: 1fr; }
+    .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  }
+
+  @media (max-width: 600px) {
+    .articles-grid { grid-template-columns: 1fr; }
+    .site-nav { display: none; }
+    .sidebar { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="#recensioni">Recensioni</a></li>
+        <li><a href="#serie">Serie</a></li>
+        <li><a href="#guide">Guide</a></li>
+        <li><a href="#about">Chi sono</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div>
+    <p class="hero-eyebrow">Recensioni di qualità · kdrama in italiano</p>
+    <h1 class="hero-title">Il drama coreano<br>visto da <em>vicino</em></h1>
+    <p class="hero-desc">Recensioni approfondite di kdrama — con attenzione alla sceneggiatura, alla fotografia, ai dialoghi. Non riassunti di trama: analisi.</p>
+    <a href="#recensioni" class="hero-cta">
+      Leggi le recensioni
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-featured">
+    <div class="featured-img-placeholder">
+      <span class="featured-img-label">Copertina episodio</span>
+    </div>
+    <div class="featured-tag">★ Ultima recensione</div>
+    <h3 class="featured-title">Il nostro meglio — Ep. 2: tutto ciò che non diciamo</h3>
+    <p class="featured-meta">Park Hae-young · JTBC 2026 <span class="featured-score">9.2</span></p>
+  </div>
+</section>
+
+<!-- ═══ ARTICOLI ═══ -->
+<div class="section-divider" id="recensioni">
+  <h2>Recensioni recenti</h2>
+</div>
+
+<main class="articles-grid">
+  <a href="#review" class="article-card">
+    <span class="card-number">01</span>
+    <p class="card-tag">Recensione · Ep. 2</p>
+    <h2 class="card-title">Il nostro meglio — Tutto ciò che non diciamo</h2>
+    <p class="card-excerpt">Park Hae-young scrive come se stesse traducendo il silenzio. L'orologio di emotion tracking, il passaggio a livello, il nome urlato da una scogliera — questo episodio è un saggio sul dolore non detto.</p>
+    <div class="card-footer">
+      <span class="card-meta">Maggio 2026 · 8 min</span>
+      <span class="card-score">9.2</span>
+    </div>
+  </a>
+
+  <a href="#" class="article-card">
+    <span class="card-number">02</span>
+    <p class="card-tag">Recensione · Ep. 1</p>
+    <h2 class="card-title">Il nostro meglio — Il peso di vent'anni di attesa</h2>
+    <p class="card-excerpt">Un drama che inizia con un uomo che urla. Non per rabbia — per esistere. Il pilot di Park Hae-young stabilisce il tono con chirurgica precisione.</p>
+    <div class="card-footer">
+      <span class="card-meta">Aprile 2026 · 6 min</span>
+      <span class="card-score">9.0</span>
+    </div>
+  </a>
+
+  <a href="#" class="article-card">
+    <span class="card-number">03</span>
+    <p class="card-tag">Guida · Dove iniziare</p>
+    <h2 class="card-title">Park Hae-young: come leggere la sua scrittura</h2>
+    <p class="card-excerpt">Da Another Miss Oh a My Mister fino a My Liberation Notes — il metodo di una sceneggiatrice che non scrive storie, scrive stati d'animo.</p>
+    <div class="card-footer">
+      <span class="card-meta">Aprile 2026 · 12 min</span>
+      <span class="card-score">—</span>
+    </div>
+  </a>
+</main>
+
+<!-- ═══ RECENSIONE COMPLETA ═══ -->
+<div class="section-divider" id="review">
+  <h2>Recensione in primo piano</h2>
+</div>
+
+<article class="review-section">
+  <div>
+    <header class="review-header">
+      <p class="review-series">Il nostro meglio · Episodio 2 · JTBC / Netflix 2026</p>
+      <h1 class="review-title">Tutto ciò che non diciamo</h1>
+      <p class="review-subtitle">Quando il dolore è più eloquente delle parole</p>
+      <div class="review-byline">
+        <div class="byline-avatar">F</div>
+        <div class="byline-info">
+          <div class="byline-name">Fotogrammi Coreani</div>
+          <div class="byline-date">20 aprile 2026 · 8 minuti di lettura</div>
+        </div>
+      </div>
+      <div class="score-bar">
+        <div class="score-item"><div class="score-item-label">Sceneggiatura</div><div class="score-item-val">9.5</div></div>
+        <div class="score-item"><div class="score-item-label">Fotografia</div><div class="score-item-val">9.0</div></div>
+        <div class="score-item"><div class="score-item-label">Recitazione</div><div class="score-item-val">9.5</div></div>
+        <div class="score-item"><div class="score-item-label">Regia</div><div class="score-item-val">9.0</div></div>
+      </div>
+    </header>
+
+    <div class="review-body">
+      <p>Un flashback riscrive tutto. Dong-man non ha aggredito il fratello: è stato Dong-hyun a farsi male cadendo da solo. L'episodio costruisce la sua tesi fondamentale fin dalla prima scena — le cose non sono mai come appaiono — e poi la porta fino alle sue conseguenze più intime.</p>
+
+      <h3>La sceneggiatura: Park Hae-young firma ogni riga</h3>
+      <p>La stessa autrice di <em>My Mister</em> e <em>My Liberation Notes</em> dimostra ancora una volta che il dolore più autentico non ha bisogno di esplosioni drammatiche. Ogni scena toglie un velo, invece di aggiungerne. Il dolore di Dong-man è esteriore, caotico, persino grottesco; quello di Eun-a è interiorizzato, quasi clandestino. Due solitudini speculari che si attraggono senza ancora saperlo.</p>
+
+      <blockquote>
+        "Perché la mia vita deve rispettare i tuoi standard?"
+        <cite>— Hwang Dong-man, episodio 2</cite>
+      </blockquote>
+
+      <h3>L'orologio di emotion tracking: il dettaglio che cambia tutto</h3>
+      <p>Il medico di Eun-a la incoraggia a usare un orologio di emotion recognition per trovare schemi emotivi da trattare. Coincidenza: anche Dong-man porta lo stesso dispositivo sperimentale. In una serie scritta da Park Hae-young, nulla è accidentale.</p>
+
+      <div class="highlight-box">
+        <strong>Lettura del simbolo</strong>
+        C'è un paradosso bellissimo qui. La serie parla di emozioni che le persone non riescono a nominare o contenere. La risposta della medicina moderna è un dispositivo che le quantifica in dati. L'epistassi di Eun-a — il corpo che parla quando la mente tace — diventa ancora più eloquente accanto a un orologio che dovrebbe fare la stessa cosa in modo "oggettivo". Due linguaggi del dolore, uno biologico e uno tecnologico, che si guardano senza capirsi.
+      </div>
+
+      <p>Il fatto che entrambi i protagonisti indossino lo stesso dispositivo è anche un modo elegantissimo per costruire una connessione prima che esista una relazione. Non si conoscono davvero ancora, ma sono già "sincronizzati" — monitorati dallo stesso sistema. Una versione high-tech del destino, trattata con la sobrietà laica tipica di questa sceneggiatrice.</p>
+
+      <h3>Fotografia: il silenzio come strumento</h3>
+      <p>Il regista Cha Young-hoon non si limita a documentare — interpreta. La colour grading differenzia lo stato emotivo dei personaggi con scelte cromatiche precise. I toni freddi e desaturati attorno a Dong-man in isolamento, le luci artificiali e quasi claustrofobiche attorno a Eun-a in ufficio. Il silenzio viene usato come strumento attivo: in più scene la regia sceglie deliberatamente di non musicare momenti di dolore acuto.</p>
+
+      <blockquote>
+        "Se non dico nulla, è come se non esistessi. Come posso stare in silenzio?"
+        <cite>— Hwang Dong-man, episodio 2</cite>
+      </blockquote>
+
+      <h3>Il momento più bello: il passaggio a livello</h3>
+      <p>Eun-a consegna il lunch box mentre le sbarre abbassate li costringono a fermarsi. Il passaggio a livello come metafora: due traiettorie che si intersecano per un istante rubato al ritmo del mondo. Il sorriso "infantile" di Dong-man dura pochi secondi, ma definisce l'intero arco emotivo dell'episodio. Vale più di mille dichiarazioni d'amore.</p>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="final-verdict">
+      <div class="verdict-score">9.2</div>
+      <div class="verdict-label">Voto episodio</div>
+      <p class="verdict-text">"Un episodio che non si guarda, si sente."</p>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Scheda tecnica</div>
+      <div class="info-row"><span class="info-label">Serie</span><span class="info-val">Il nostro meglio</span></div>
+      <div class="info-row"><span class="info-label">Episodio</span><span class="info-val">2 di 12</span></div>
+      <div class="info-row"><span class="info-label">Rete</span><span class="info-val">JTBC / Netflix</span></div>
+      <div class="info-row"><span class="info-label">Sceneggiatura</span><span class="info-val">Park Hae-young</span></div>
+      <div class="info-row"><span class="info-label">Regia</span><span class="info-val">Cha Young-hoon</span></div>
+      <div class="info-row"><span class="info-label">Durata</span><span class="info-val">65 min</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Cast principale</div>
+      <div class="info-row"><span class="info-label">Dong-man</span><span class="info-val">Koo Kyo-hwan</span></div>
+      <div class="info-row"><span class="info-label">Eun-a</span><span class="info-val">Go Youn-jung</span></div>
+      <div class="info-row"><span class="info-label">Gyeong-se</span><span class="info-val">Oh Jung-se</span></div>
+      <div class="info-row"><span class="info-label">Hye-jin</span><span class="info-val">Kang Mal-geum</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Tag</div>
+      <div class="tag-list">
+        <span class="tag-pill">kdrama 2026</span>
+        <span class="tag-pill">Park Hae-young</span>
+        <span class="tag-pill">JTBC</span>
+        <span class="tag-pill">Netflix</span>
+        <span class="tag-pill">slice of life</span>
+        <span class="tag-pill">psicologico</span>
+        <span class="tag-pill">Koo Kyo-hwan</span>
+        <span class="tag-pill">Go Youn-jung</span>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Se ti è piaciuto, guarda anche</div>
+      <div class="info-row"><span class="info-label">My Mister</span><span class="info-val">2018</span></div>
+      <div class="info-row"><span class="info-label">My Liberation Notes</span><span class="info-val">2022</span></div>
+      <div class="info-row"><span class="info-label">Another Miss Oh</span><span class="info-val">2016</span></div>
+    </div>
+  </aside>
+</article>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-logo">Fotogrammi Coreani</div>
+  <p class="footer-tagline">Recensioni di kdrama. Non riassunti — analisi.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Reddit</a>
+    <a href="#">Newsletter</a>
+    <a href="#">Chi sono</a>
+  </div>
+  <p class="footer-copy">© 2026 Fotogrammi Coreani</p>
+</footer>
+
+</body>
+</html>
