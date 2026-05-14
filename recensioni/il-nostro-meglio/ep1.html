@@ -154,7 +154,66 @@
   }
 
   .intro-body p { margin-bottom: 1.4rem; }
-
+/* ── SCENE CARDS GRID ── */
+.scene-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin: 2rem 0 2.5rem;
+  background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+}
+.scene-card {
+  background: var(--paper-card);
+  padding: 1.4rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.scene-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.scene-card:hover::before { opacity: 1; }
+.scene-card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--paper-warm);
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  line-height: 1;
+  user-select: none;
+}
+.scene-card-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.scene-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+.scene-card-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  font-weight: 300;
+}
   .intro-body em {
     font-style: italic;
     color: var(--ink);
@@ -752,12 +811,45 @@
 
       <!-- SCENEGGIATURA -->
       <div class="section-heading">
-        <h3>Sceneggiatura: il dolore come struttura narrativa</h3>
+        <h3>Sceneggiatura: un uomo impossibile da amare</h3>
         <div class="section-score-wrap">
           <div class="section-score">8.5</div>
           <div class="section-score-label">Voto sezione</div>
         </div>
       </div>
+
+      <!-- ═══ SCENE CHIAVE ═══ -->
+<div class="scene-cards">
+
+  <div class="scene-card">
+    <span class="scene-card-num">01</span>
+    <p class="scene-card-label">Scena chiave</p>
+    <h4 class="scene-card-title">La festa di gala</h4>
+    <p class="scene-card-desc">Dong-man esplode davanti a tutti — colleghi, attori, il sistema. Non è una scena di rabbia: è una valvola che cede dopo vent'anni di pressione. La più vera del pilot.</p>
+  </div>
+
+  <div class="scene-card">
+    <span class="scene-card-num">02</span>
+    <p class="scene-card-label">Scena chiave</p>
+    <h4 class="scene-card-title">Eun-a demolisce il copione</h4>
+    <p class="scene-card-desc">Elenca i difetti di <em>Weather Maker</em> con la qualità di chi descrive un problema altrui mentre parla di sé. Dong-man ascolta. È la prima volta che lo fa.</p>
+  </div>
+
+  <div class="scene-card">
+    <span class="scene-card-num">03</span>
+    <p class="scene-card-label">Scena chiave</p>
+    <h4 class="scene-card-title">Il passaggio a livello</h4>
+    <p class="scene-card-desc">La scena che dà la copertina alla serie. Dong-man urla il suo nome sul tetto per sentirsi vivo. Eun-a dice che lo ha sentito. Lui la tocca e dice <em>"mia"</em>. Si imbarazza. Va avanti.</p>
+  </div>
+
+  <div class="scene-card">
+    <span class="scene-card-num">04</span>
+    <p class="scene-card-label">Scena chiave</p>
+    <h4 class="scene-card-title">L'autobus di notte</h4>
+    <p class="scene-card-desc">Di ritorno dal gala, Dong-man ciondola la testa a ritmo di musica — poi inizia a battere la fronte contro il vetro. Il sorriso e le testate non si contraddicono. Sono la stessa cosa.</p>
+  </div>
+
+</div>
 
       <p>Il primo episodio di <em>We Are All Trying Here</em> si apre nel cuore della notte: un uomo fissa lo schermo vuoto di un laptop senza riuscire a scrivere una sola parola. È Gyeong-se, regista celebrato, ormai al suo quinto film. Tra poche ore l’opera uscirà in sala, ma sul suo volto non c’è traccia di entusiasmo. Più che un uomo alla vigilia di un traguardo, sembra qualcuno rimasto intrappolato dentro un pensiero da cui non riesce a liberarsi.</p>
 
