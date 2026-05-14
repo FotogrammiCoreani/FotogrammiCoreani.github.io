@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean Frames — K-Drama Reviews</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #4a3f35;
+    --ink-muted: #9a8e84;
+    --paper: #f8f4ef;
+    --paper-warm: #f0e9df;
+    --paper-card: #fdfaf7;
+    --accent: #c0392b;
+    --accent-soft: #e8c5c0;
+    --accent-faint: #faf0ee;
+    --gold: #b8922a;
+    --gold-faint: #f7f0e0;
+    --border: rgba(26,20,16,0.12);
+    --border-soft: rgba(26,20,16,0.06);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* noise */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .site-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .site-logo span { color: var(--accent); }
+
+  .site-nav { display: flex; gap: 2rem; list-style: none; }
+  .site-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .site-nav a:hover { color: var(--accent); }
+
+
+  .lang-switch-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .lang-switch-top a {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-muted);
+    transition: color 0.2s;
+  }
+
+  .lang-switch-top a:hover {
+    color: var(--accent);
+  }
+
+  .lang-switch-top .active {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem 0;
+  }
+
+  .hero-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px;
+    margin-bottom: 3px;
+  }
+
+  /* left: testo editoriale */
+  .hero-text {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 420px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-text::before {
+    content: '映';
+    position: absolute;
+    top: -0.1em;
+    right: -0.05em;
+    font-family: 'Playfair Display', serif;
+    font-size: 16rem;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s ease forwards;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent-soft);
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(248,244,239,0.6);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 400px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.3s ease forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 13px 24px;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s ease forwards;
+  }
+  .hero-cta:hover { background: #a93226; transform: translateY(-1px); }
+  .hero-cta svg { width: 13px; height: 13px; }
+
+  /* right: immagine in primo piano */
+  .hero-featured {
+    position: relative;
+    background: var(--paper-warm);
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.25s ease forwards;
+  }
+
+  .hero-featured-img {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #d4c5b5 0%, #b8a898 100%);
+  }
+
+  /* pattern diagonale come nel file originale */
+  .hero-featured-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(26,20,16,0.03) 10px,
+      rgba(26,20,16,0.03) 20px
+    );
+  }
+
+  .hero-featured-img-label {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+  }
+
+  .hero-featured-overlay {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(to top, rgba(26,20,16,0.85) 0%, transparent 100%);
+    padding: 2.5rem 2rem 2rem;
+  }
+
+  .featured-pill {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+  }
+
+  .featured-series {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(248,244,239,0.55);
+    margin-bottom: 6px;
+  }
+
+  .featured-ep-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .featured-meta {
+    font-size: 12px;
+    color: rgba(248,244,239,0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .featured-score-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 2px 8px;
+  }
+
+  .featured-read-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(248,244,239,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .featured-read-link:hover { color: #fff; }
+  .featured-read-link svg { width: 11px; height: 11px; }
+
+  /* ── STRIP NUMERI ── */
+  .hero-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-bottom: 4rem;
+  }
+
+  .strip-cell {
+    background: var(--paper-card);
+    border: 1px solid var(--border-soft);
+    padding: 1.1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .strip-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .strip-label {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+
+  .strip-label strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 1px;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-divider h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── GRIGLIA RECENSIONI ── */
+  .reviews-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  /* card grande (prima card, a tutta larghezza su 2 colonne) */
+  .card {
+    background: var(--paper-card);
+    border: 1px solid var(--border-soft);
+    padding: 1.75rem;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(26,20,16,0.1);
+    z-index: 2;
+  }
+
+  .card--wide {
+    grid-column: span 2;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .card--wide .card-image-block {
+    flex-shrink: 0;
+    width: 200px;
+    aspect-ratio: 2/3;
+    background: var(--paper-warm);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card--wide .card-image-block::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 8px,
+      rgba(26,20,16,0.03) 8px,
+      rgba(26,20,16,0.03) 16px
+    );
+  }
+
+  .card-image-label {
+    font-size: 10px;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .card--wide .card-content { flex: 1; display: flex; flex-direction: column; }
+
+  .card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--paper-warm);
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .card--wide .card-num { font-size: 60px; }
+
+  .card-tag {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .card--wide .card-title { font-size: 22px; }
+
+  .card-excerpt {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-soft);
+    padding-top: 12px;
+    margin-top: auto;
+  }
+
+  .card-meta {
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .card-score {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gold);
+  }
+  .card-score::before { content: '★ '; }
+
+  /* card senza voto */
+  .card-score--none { color: var(--ink-muted); }
+  .card-score--none::before { content: ''; }
+
+  /* ── ASIDE: chi sono + serie ── */
+  .home-aside {
+    max-width: 1100px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .aside-block {
+    background: var(--paper-card);
+    border: 1px solid var(--border-soft);
+    padding: 2rem;
+  }
+
+  .aside-block--dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .aside-label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .aside-block--dark .aside-label { color: var(--accent-soft); }
+
+  .aside-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .aside-block--dark .aside-title { color: #fff; }
+
+  .aside-text {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .aside-block--dark .aside-text { color: rgba(248,244,239,0.6); }
+
+  .aside-series-list { list-style: none; margin-top: 1rem; }
+  .aside-series-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink-soft);
+  }
+  .aside-block--dark .aside-series-list li { border-color: rgba(255,255,255,0.07); color: rgba(248,244,239,0.65); }
+  .aside-series-list li:last-child { border-bottom: none; }
+  .aside-series-ep {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(248,244,239,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 13px; margin-bottom: 2rem; font-style: italic; font-family: 'Playfair Display', serif; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+  .footer-links a { font-size: 12px; color: rgba(248,244,239,0.5); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12px; }
+
+  /* ── ANIMAZIONI ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-top { grid-template-columns: 1fr; }
+    .hero-featured { min-height: 320px; }
+    .hero-strip { grid-template-columns: 1fr 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .card--wide { grid-column: span 1; flex-direction: column; }
+    .card--wide .card-image-block { width: 100%; aspect-ratio: 16/9; }
+    .home-aside { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .site-nav { display: none; }
+    .hero-strip { grid-template-columns: 1fr; }
+    .hero-text { padding: 2.5rem; min-height: 340px; }
+
+    .header-inner {
+      gap: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
+
+    <nav>
+      <ul class="site-nav">
+        <li><a href="#recensioni">Reviews</a></li>
+        <li><a href="#serie">Serie</a></li>
+        <li><a href="#">Guide</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switch-top">
+      <a href="../index.html">IT</a>
+      <a href="index.html" class="active">EN</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+
+  <div class="hero-top">
+
+    <!-- colonna sinistra: manifesto editoriale -->
+    <div class="hero-text">
+      <p class="hero-eyebrow">Reviews di qualità · kdrama in italiano</p>
+      <h1 class="hero-title">Korean drama,<br>examined <em>closely</em></h1>
+      <p class="hero-desc">Reviews approfondite di kdrama — con attenzione alla sceneggiatura, alla fotografia, ai dialoghi. Non riassunti di trama: analisi.</p>
+      <a href="#recensioni" class="hero-cta">
+        Read the reviews
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <!-- colonna destra: ultima recensione in primo piano -->
+    <a href="ep2-il-nostro-meglio.html" class="hero-featured" style="text-decoration:none;">
+      <div class="hero-featured-img">
+        <span class="hero-featured-img-label">Episode cover</span>
+      </div>
+      <div class="hero-featured-overlay">
+        <div class="featured-pill">★ Latest review</div>
+        <div class="featured-series">We Are All Trying Here · Ep. 2 · JTBC / Netflix 2026</div>
+        <h2 class="featured-ep-title">Everything We Never Say</h2>
+        <div class="featured-meta">
+          Park Hae-young · Cha Young-hoon
+          <span class="featured-score-badge">9.2</span>
+        </div>
+        <span class="featured-read-link">
+          Read review
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+        </span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- strip numeri blog -->
+  <div class="hero-strip">
+    <div class="strip-cell">
+      <div class="strip-num">02</div>
+      <div class="strip-label"><strong>Reviews pubblicate</strong>continuously updated</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-num">01</div>
+      <div class="strip-label"><strong>Currently covering</strong>Il nostro meglio · 2026</div>
+    </div>
+    <div class="strip-cell">
+      <div class="strip-num">9.2</div>
+      <div class="strip-label"><strong>Highest score</strong>We Are All Trying Here, ep. 2</div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══ RECENSIONI ═══ -->
+<div class="section-divider" id="recensioni">
+  <h2>Reviews recenti</h2>
+</div>
+
+<div class="reviews-grid">
+
+  <!-- card grande: ep. 2 -->
+  <a href="ep2-il-nostro-meglio.html" class="card card--wide">
+    <div class="card-image-block">
+      <span class="card-image-label">Episode cover</span>
+    </div>
+    <div class="card-content">
+      <span class="card-num">01</span>
+      <p class="card-tag">Review · Ep. 2</p>
+      <h2 class="card-title">Il nostro meglio — Everything We Never Say</h2>
+      <p class="card-excerpt">Park Hae-young writes as if she were translating silence itself. The emotion-tracking watch, the railroad crossing, the name screamed from a cliffside — this episode becomes an essay on unspoken grief. Two mirrored solitudes drawn toward each other before they even understand why.</p>
+      <div class="card-footer">
+        <span class="card-meta">May 2026 · 8 min</span>
+        <span class="card-score">9.2</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- card piccola: ep. 1 -->
+  <a href="ep1-il-nostro-meglio.html" class="card">
+    <span class="card-num">02</span>
+    <p class="card-tag">Review · Ep. 1</p>
+    <h2 class="card-title">We Are All Trying Here — The Weight of Twenty Years of Waiting</h2>
+    <p class="card-excerpt">A drama that begins with a man screaming. Not out of anger — but to exist. Park Hae-young's pilot establishes its emotional register with surgical precision.</p>
+    <div class="card-footer">
+      <span class="card-meta">April 2026 · 6 min</span>
+      <span class="card-score">9.0</span>
+    </div>
+  </a>
+
+  <!-- card piccola: guida -->
+  <a href="#" class="card">
+    <span class="card-num">03</span>
+    <p class="card-tag">Guide · Writer</p>
+    <h2 class="card-title">Park Hae-young: how to read her writing</h2>
+    <p class="card-excerpt">From Another Miss Oh to My Mister and My Liberation Notes — the method of a screenwriter who doesn't write stories, but emotional states.</p>
+    <div class="card-footer">
+      <span class="card-meta">Aprile 2026 · 12 min</span>
+      <span class="card-score card-score--none">— essay</span>
+    </div>
+  </a>
+
+  <!-- card piccola: prossimamente -->
+  <a href="#" class="card" style="opacity:0.6; cursor:default; pointer-events:none;">
+    <span class="card-num">04</span>
+    <p class="card-tag">Coming soon · Ep. 3</p>
+    <h2 class="card-title">We Are All Trying Here — Ep. 3</h2>
+    <p class="card-excerpt">The review for episode 3 will be published after the April 25 broadcast.</p>
+    <div class="card-footer">
+      <span class="card-meta">Coming soon</span>
+      <span class="card-score card-score--none">—</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ═══ CHI SONO + SERIE IN CORSO ═══ -->
+<div class="home-aside" id="serie">
+
+  <!-- chi sono -->
+  <div class="aside-block">
+    <p class="aside-label">About</p>
+    <h2 class="aside-title">An English-language voice<br>on Korean drama</h2>
+    <p class="aside-text">Korean Frames is a long-form kdrama review blog. No plot recaps — only screenplay analysis, visual interpretation, and close attention to symbolism. Korean drama treated as cinema — because often, it is.</p>
+  </div>
+
+  <!-- serie in corso -->
+  <div class="aside-block aside-block--dark">
+    <p class="aside-label">Series coverage</p>
+    <h2 class="aside-title" style="color:#fff;">Il nostro meglio</h2>
+    <p class="aside-text">We Are All Trying Here · JTBC / Netflix 2026 · 12 episodes · Park Hae-young</p>
+    <ul class="aside-series-list">
+      <li>Episode 1 — The Weight of Twenty Years of Waiting <span class="aside-series-ep">★ 9.0</span></li>
+      <li>Episodio 2 — Everything We Never Say <span class="aside-series-ep">★ 9.2</span></li>
+      <li style="opacity:0.45;">Episode 3 — coming soon <span class="aside-series-ep">—</span></li>
+      <li style="opacity:0.45;">Episode 4 — coming soon <span class="aside-series-ep">—</span></li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-logo">Fotogrammi Coreani</div>
+  <p class="footer-tagline">Reviews di kdrama. Non riassunti — analisi.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Reddit</a>
+    <a href="#">Newsletter</a>
+    <a href="#">About</a>
+  </div>
+  <p class="footer-copy">© 2026 Fotogrammi Coreani</p>
+</footer>
+
+</body>
+</html>
