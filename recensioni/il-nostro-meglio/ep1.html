@@ -591,6 +591,72 @@
     color: var(--ink);
   }
 
+/* ── PRO / CONTRO ── */
+.pros-cons-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 3rem 0 2.5rem;
+  background: var(--border-soft);
+  border: 1px solid var(--border-soft);
+}
+
+.pros-cons-col {
+  background: var(--paper-card);
+  padding: 1.5rem;
+}
+
+.pros-cons-col.pro {
+  border-top: 3px solid #6f9f72;
+}
+
+.pros-cons-col.con {
+  border-top: 3px solid #b86b5f;
+}
+
+.pros-cons-title {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.pros-cons-col.pro .pros-cons-title {
+  color: #5f8f62;
+}
+
+.pros-cons-col.con .pros-cons-title {
+  color: #a85f55;
+}
+
+.pros-cons-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pros-cons-list li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.pros-cons-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 600px) {
+  .pros-cons-box {
+    grid-template-columns: 1fr;
+  }
+}
+
   /* ── SIDEBAR ── */
   .sidebar { padding-top: 0.5rem; }
 
@@ -964,6 +1030,27 @@ Ma qualcosa è già cambiato, e tutti e due lo sanno.
 
     </div>
   
+    <div class="pros-cons-box">
+  <div class="pros-cons-col pro">
+    <div class="pros-cons-title">Cosa funziona</div>
+    <ul class="pros-cons-list">
+      <li>Dong-man è un protagonista scomodo, ma già dolorosamente umano.</li>
+      <li>Il contrasto tra Dong-man ed Eun-a dà subito alla serie una tensione emotiva forte.</li>
+      <li>L’EmotiWatch è un dettaglio narrativo brillante: ironico, crudele, contemporaneo.</li>
+      <li>La scrittura di Park Hae-young riesce ancora a trasformare il disagio quotidiano in materia narrativa.</li>
+    </ul>
+  </div>
+
+  <div class="pros-cons-col con">
+    <div class="pros-cons-title">Cosa convince meno</div>
+    <ul class="pros-cons-list">
+      <li>Il pilot chiede pazienza: più che raccontare una trama, accumula ferite, silenzi e attriti.</li>
+      <li>Alcuni personaggi secondari restano ancora in funzione del protagonista.</li>
+      <li>Chi cerca un avvio immediatamente romantico o più dinamico potrebbe trovarlo respingente.</li>
+    </ul>
+  </div>
+</div>
+
   <!-- ═══ EP NAV ═══ -->
 <nav class="ep-nav">
   <a href="ep2-il-nostro-meglio.html" class="ep-nav-item">
