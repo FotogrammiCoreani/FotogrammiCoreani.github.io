@@ -153,6 +153,46 @@
     max-width: 780px;
   }
 
+  /* ── EP NAV ── */
+.ep-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 0;
+  margin: 3rem 0 0;
+}
+.ep-nav-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-decoration: none;
+  text-align: right;
+}
+.ep-nav-item:hover .ep-nav-title { color: var(--accent); }
+.ep-nav-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.ep-nav-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--ink);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.ep-nav-title svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
   .intro-body p { margin-bottom: 1.4rem; }
 /* ── SCENE CARDS GRID ── */
 .scene-cards {
@@ -868,32 +908,32 @@ Ma qualcosa è già cambiato, e tutti e due lo sanno.
 
       <p>Hwang Dong-man ha quarant'anni, nessuna regia all'attivo, e appartiene al gruppo degli "Otto" — un'élite della scuola di cinema che ha prodotto registi celebrati. È l'unico che non è diventato niente. Insegna ancora ai giovani studenti che la povertà è un privilegio per chi scrive, e intanto evita il padrone di casa per l'affitto. La sua amarezza non è urlata: è incorporata, è diventata postura, ritmo di camminata, modo di occupare una stanza.</p>
 
-      <p>Koo Kyo-hwan fa una cosa straordinaria: Dong-man è un disastro, e lo sappiamo da subito, eppure non riusciamo a distogliere lo sguardo. C'è una scena alla festa di gala per l'uscita del film di Gyeong-se in cui Dong-man comincia a insultare tutti — colleghi, attori, il sistema — con quella progressione di una persona che ha tenuto tutto dentro per troppo tempo e, una volta aperta la valvola, non riesce a chiuderla. È una scena scomoda da guardare. È anche la scena più vera del pilot. Poi esce, corre per strada, urla. Non per rabbia, esattamente. Per esistere.</p>
+      <p>Koo Kyo-hwan fa una cosa straordinaria: Dong-man è un disastro, e lo sappiamo da subito, eppure non riusciamo a distogliere lo sguardo. C'è una scena alla festa di gala per l'uscita del film di Gyeong-se in cui Dong-man comincia a insultare tutti — colleghi, attori, il sistema — con quella progressione di una persona che ha tenuto tutto dentro per troppo tempo e, una volta aperta la valvola, non riesce a chiuderla. È una scena scomoda da guardare. È anche la scena più vera del pilot. Poi esce, corre per strada, cade, urla. Non per rabbia. Per dire al mondo "io sono ancora qua".</p>
 
       <blockquote>
         "Se non dicesse nulla, si sentirebbe come se non esistesse. Come può non parlare?"
         <cite>— Byeon Eun-a, episodio 1</cite>
       </blockquote>
 
-      <h3>Byeon Eun-a: tutto quello che non si vede</h3>
-
       <p>Eun-a è costruita come il rovescio esatto di Dong-man. Lui esplode verso l'esterno; lei comprime verso l'interno. È conosciuta in azienda come "L'Ascia" per la brutalità delle sue recensioni di sceneggiatura — un'identità che protegge qualcosa di più fragile. Quando il suo capo la convoca per rimproverarle di aver perso il filo critico, la osserviamo assorbire tutto senza rispondere, con quella qualità di chi ha imparato da tempo che esistere senza fare rumore è la strategia più sicura.</p>
 
-      <p>Go Youn-jung lavora quasi esclusivamente con il corpo: un'epistassi improvvisa alla scrivania, l'orologio di emotion tracking che si illumina di rosso mentre lei è ferma. Il corpo tradisce quello che il personaggio non dice. È un'interpretazione che vale doppio rispetto a ciò che si vede in superficie.</p>
+      <figure class="review-image">
+  <img src="../../images/scenes/bleedingnose.jpeg" alt="Byeon Eun-a">
+  <figcaption>
+    Eun-a trattiene tutto. Ma il corpo continua a parlare al posto suo.
+  </figcaption>
+</figure>
+
+      <p>Go Youn-jung lavora quasi esclusivamente con il corpo: un'epistassi improvvisa alla scrivania, l'emotiwatch che si illumina di rosso mentre lei è ferma. Il corpo tradisce quello che il personaggio non dice. C’è qualcosa di profondamente coerente nel fatto che Eun-a — il personaggio più controllato, composto e interiorizzato — venga tradita  dal proprio corpo. Ogni epistassi arriva come una fuga involontaria di pressione emotiva accumulata. È il dolore che trova un varco fisico. Più cerca di restare immobile emotivamente, più il corpo insiste nel rendere visibile ciò che lei tenta di reprimere.</p>
 
       <div class="symbol-box">
-        <strong>Lettura del simbolo · EmotiWatch</strong>
-        L'orologio di emotion recognition che Eun-a porta al polso è il détail più intelligente del pilot. È una trovata inquietante, quasi da <em>Black Mirror</em>: un dispositivo che pretende di trasformare l'emozione in dato, il disagio in pattern leggibile, la sofferenza in informazione monitorabile. La medicina le ha detto di quantificare le sue emozioni per trovarci degli schemi, capirle, trattarle. Ma la serie sembra suggerire una domanda più sottile: siamo davvero più vicini agli altri quando sappiamo cosa provano, o i rapporti umani funzionano proprio perché una parte dell'altro resta opaca?
+        <strong>IL DETTAGLIO NARRativo • EmotiWatch</strong>
+        L'orologio che Dong-man e Eun-a portano al polso è forse il détail più interessante del pilot. È una trovata inquietante, quasi da <em>Black Mirror</em>: i due protagonisti, che sono agli antipodi assoluti — lei che reprime tutto, lui che esternalizza tutto — indossano lo stesso dispositivo per lo stesso problema: trasformare sentimenti indistinti in dati leggibili. È il sogno contemporaneo del controllo emotivo — l’idea che la sofferenza diventi gestibile nel momento stesso in cui viene tradotta in parole, pattern, notifiche.<br>
+        Ma Park Hae-young costruisce subito una contraddizione. I personaggi che indossano il dispositivo sono proprio quelli meno capaci di comprendere ciò che provano davvero. L’orologio registra l’emozione, ma non può interpretarla; misura il dolore senza riuscire a contenerlo.
       </div>
 
-      <div class="symbol-box">
-        <strong>Lettura del simbolo · Epistassi</strong>
-        Se l'EmotiWatch è il tentativo tecnologico di leggere le emozioni, l'epistassi di Eun-a è il suo opposto: il corpo che parla quando la mente non riesce più a farlo. Il sangue non spiega, non ordina, non traduce. Interrompe. Appare come una fuga di pressione emotiva, il segno fisico di qualcosa che il personaggio ha imparato a trattenere troppo a lungo. Per questo il dettaglio funziona così bene: Eun-a può restare composta, immobile, quasi indecifrabile; ma il corpo si sottrae alla disciplina e rende visibile ciò che lei tenta di nascondere.
-      </div>
-
-      <h3>Il passaggio a livello: il primo incontro che non sembra un incontro</h3>
-
-      <p>Eun-a sta tornando a casa. Dong-man balla vicino a un passaggio a livello con le cuffie addosso. Si ritrovano fermi, fianco a fianco, ad aspettare che le sbarre si alzino. È il tipo di scena che Park Hae-young sa costruire meglio di chiunque altro: due persone che non si cercano, due traiettorie che si intersecano per un momento rubato alla logica del mondo, e in quell'intersezione qualcosa si sposta, impercettibilmente.</p>
+      <p>IL PRIMO INCONTRO. LE LORO STRADE SI INCROCIANO
+        Eun-a sta tornando a casa. Dong-man balla vicino a un passaggio a livello con le cuffie addosso. Si ritrovano fermi, fianco a fianco, ad aspettare che le sbarre si alzino. È il tipo di scena che Park Hae-young sa costruire meglio di chiunque altro: due persone che non si cercano, due traiettorie che si intersecano per un momento rubato alla logica del mondo, e in quell'intersezione qualcosa si sposta, impercettibilmente.</p>
 
       <p>Dong-man dice che, quando non ha nessuno con cui parlare, sale sul tetto e urla. Eun-a dice che lo ha sentito. Condividono lo stesso palazzo. Abitano la stessa solitudine da edifici adiacenti senza saperlo — finché lei non glielo dice, con quella voce piatta di chi rivela qualcosa di importante fingendo di non farlo. Dong-man le chiede di leggere la sua sceneggiatura. Lei dice di sì. Non capiamo esattamente perché, e questo è già tutto.</p>
 
@@ -902,13 +942,32 @@ Ma qualcosa è già cambiato, e tutti e due lo sanno.
         <cite>— Byeon Eun-a, episodio 1</cite>
       </blockquote>
 
-      <h3>La sceneggiatura come specchio: Weather Maker</h3>
-
       <p>Il titolo della sceneggiatura di Dong-man — <em>Weather Maker</em> — è già un manifesto. Qualcuno che produce il tempo che gli altri vivono, senza essere visto. Eun-a la legge di notte e le piace, anche se non avrebbe dovuto — il suo capo gliel'ha consegnata per farla demolire in pubblico davanti all'autore. Lei trova qualcosa nel testo. Qualcosa che la riconosce.</p>
 
       <p>Quando convoca Dong-man all'ufficio e gli elenca i difetti della sceneggiatura — la motivazione dei personaggi troppo labile, la mancanza di forza — lo fa con quella qualità particolare di chi sta descrivendo un problema altrui mentre parla di sé. Dong-man la ascolta. Poi il capo entra e sfascia tutto, venticinque anni di aspettativa sul tavolo come vetri rotti. Il pilot di Park Hae-young stabilisce il tono con chirurgica precisione: questo è un drama sul non-detto. Sul tempo che passa senza che nessuno lo nomini.</p>
 
+      <figure class="review-image">
+  <img src="../../images/scenes/passaggio-a-livello.jpg" alt="Dong-man e Eun-a al passaggio a livello">
+  <figcaption>
+    Un passaggio a livello, Go Youn-jung e una tensione romantica sospesa. Aspetta, dove l'ho già visto?.
+  </figcaption>
+</figure>
+
     </div>
+  
+  <!-- ═══ EP NAV ═══ -->
+<nav class="ep-nav">
+  <a href="ep2-il-nostro-meglio.html" class="ep-nav-item">
+    <span class="ep-nav-label">Episodio successivo</span>
+    <span class="ep-nav-title">
+      Tutto ciò che non diciamo
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M1 7h12M7 1l6 6-6 6"/>
+      </svg>
+    </span>
+  </a>
+</nav>
+
   </div>
 
   <!-- SIDEBAR -->
@@ -975,7 +1034,7 @@ Ma qualcosa è già cambiato, e tutti e due lo sanno.
 <!-- ═══ FOOTER ═══ -->
 <footer class="site-footer">
   <div class="footer-logo">Fotogrammi Coreani</div>
-  <p class="footer-tagline">Recensioni di kdrama. Non riassunti — analisi.</p>
+  <p class="footer-tagline">Recensioni di kdrama. Frame dopo frame, emozione dopo emozione.</p>
   <div class="footer-links">
     <a href="#">Instagram</a>
     <a href="#">Reddit</a>
