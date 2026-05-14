@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recensioni · Fotogrammi Coreani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #4a3f35;
+    --ink-muted: #9a8e84;
+    --paper: #f8f4ef;
+    --paper-warm: #f0e9df;
+    --paper-card: #fdfaf7;
+    --accent: #c0392b;
+    --accent-soft: #e8c5c0;
+    --accent-faint: #faf0ee;
+    --gold: #b8922a;
+    --gold-faint: #f7f0e0;
+    --border: rgba(26,20,16,0.12);
+    --border-soft: rgba(26,20,16,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .site-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .site-logo span { color: var(--accent); }
+
+  .site-nav { display: flex; gap: 2rem; list-style: none; }
+
+  .site-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .site-nav a:hover,
+  .site-nav a.active { color: var(--accent); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 2rem 0;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .page-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  .page-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+  }
+
+  .page-desc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    font-weight: 300;
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── FILTERS ── */
+  .filters-bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .filter-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    margin-right: 0.4rem;
+  }
+
+  .filter-pill {
+    font-size: 12px;
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    color: var(--ink-soft);
+    background: transparent;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  .filter-pill:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .filter-pill.active { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+  /* ── COUNT ── */
+  .results-count {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 2rem 1.2rem;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  /* ── CARDS GRID ── */
+  .cards-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  /* ── REVIEW CARD ── */
+  .review-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border-soft);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.55s ease both;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .review-card:hover {
+    border-color: var(--border);
+    box-shadow: 0 4px 24px rgba(26,20,16,0.08);
+    z-index: 1;
+  }
+
+  .review-card:nth-child(1) { animation-delay: 0.15s; }
+  .review-card:nth-child(2) { animation-delay: 0.22s; }
+  .review-card:nth-child(3) { animation-delay: 0.29s; }
+
+  /* top accent line — colored by type */
+  .review-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .review-card[data-type="serie"]::before  { background: var(--accent); }
+  .review-card[data-type="film"]::before   { background: var(--gold); }
+
+  /* thumbnail area */
+  .card-thumb {
+    aspect-ratio: 16/9;
+    background: var(--paper-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .card-thumb-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .card-thumb-serie {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+    opacity: 0.15;
+    line-height: 1;
+    font-style: italic;
+  }
+
+  /* type badge */
+  .card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 3px 9px;
+    border: 1px solid;
+  }
+
+  .review-card[data-type="serie"] .card-badge {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-faint);
+  }
+
+  .review-card[data-type="film"] .card-badge {
+    color: var(--gold);
+    border-color: var(--gold);
+    background: var(--gold-faint);
+  }
+
+  /* score badge */
+  .card-score {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--paper);
+  }
+
+  .review-card[data-type="serie"] .card-score { background: var(--accent); }
+  .review-card[data-type="film"]  .card-score { background: var(--gold); }
+
+  /* card body */
+  .card-body {
+    padding: 1.4rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .card-meta {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .card-meta-sep { opacity: 0.35; }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+    transition: color 0.2s;
+  }
+
+  .review-card:hover .card-title { color: var(--accent); }
+  .review-card[data-type="film"]:hover .card-title { color: var(--gold); }
+
+  .card-subtitle {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-excerpt {
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    font-weight: 300;
+    flex: 1;
+    margin-bottom: 1.4rem;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .card-date {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .card-cta {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.2s;
+  }
+
+  .review-card[data-type="serie"] .card-cta { color: var(--accent); }
+  .review-card[data-type="film"]  .card-cta { color: var(--gold); }
+  .review-card:hover .card-cta { gap: 9px; }
+
+  .card-cta svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  /* ── DIVIDER ── */
+  .section-sep {
+    max-width: 1100px;
+    margin: 0 auto 2.5rem;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .section-sep-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .section-sep-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── FEATURED (first card wide) ── */
+  .cards-grid.has-featured .review-card:first-child {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+
+  .cards-grid.has-featured .review-card:first-child .card-thumb {
+    width: 340px;
+    flex-shrink: 0;
+    aspect-ratio: auto;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(248,244,239,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 13px; margin-bottom: 2rem; font-style: italic; font-family: 'Playfair Display', serif; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+  .footer-links a { font-size: 12px; color: rgba(248,244,239,0.5); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .cards-grid.has-featured .review-card:first-child { flex-direction: column; }
+    .cards-grid.has-featured .review-card:first-child .card-thumb { width: 100%; aspect-ratio: 16/9; }
+  }
+
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .site-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="recensioni.html" class="active">Recensioni</a></li>
+        <li><a href="#">Serie</a></li>
+        <li><a href="#">Guide</a></li>
+        <li><a href="#">Chi sono</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ PAGE HEADER ═══ -->
+<div class="page-header">
+  <p class="page-label">Archivio</p>
+  <h1 class="page-title">Recensioni</h1>
+  <p class="page-desc">Episodio dopo episodio, frame dopo frame. Ogni testo cerca di capire non solo cosa succede, ma cosa rimane — dentro i personaggi e dentro di noi.</p>
+</div>
+
+<!-- ═══ FILTERS ═══ -->
+<div class="filters-bar">
+  <span class="filter-label">Filtra per</span>
+  <button class="filter-pill active" onclick="filterCards('all', this)">Tutto</button>
+  <button class="filter-pill" onclick="filterCards('serie', this)">Serie</button>
+  <button class="filter-pill" onclick="filterCards('film', this)">Film</button>
+  <button class="filter-pill" onclick="filterCards('2026', this)">2026</button>
+  <button class="filter-pill" onclick="filterCards('2025', this)">2025</button>
+</div>
+
+<!-- ═══ SERIE SECTION ═══ -->
+<div class="results-count" id="results-count">3 contenuti</div>
+
+<div class="section-sep">
+  <span class="section-sep-label">Serie</span>
+  <span class="section-sep-line"></span>
+</div>
+
+<!-- ═══ CARDS GRID ═══ -->
+<div class="cards-grid" id="cards-grid">
+
+  <!-- CARD EP.1 -->
+  <a href="recensioni/il-nostro-meglio/ep1.html" class="review-card" data-type="serie" data-year="2026" data-tag="serie 2026">
+    <div class="card-thumb">
+      <div class="card-badge">Episodio</div>
+      <div class="card-thumb-placeholder">
+        <span class="card-thumb-serie">Il nostro meglio</span>
+      </div>
+      <div class="card-score">8</div>
+    </div>
+    <div class="card-body">
+      <p class="card-meta">
+        We Are All Trying Here
+        <span class="card-meta-sep">·</span>
+        Ep. 1 di 12
+        <span class="card-meta-sep">·</span>
+        JTBC / Netflix
+      </p>
+      <h2 class="card-title">Il peso di vent'anni di attesa</h2>
+      <p class="card-subtitle">Un drama che inizia con un uomo che urla. Non per rabbia — per esistere.</p>
+      <p class="card-excerpt">Park Hae-young non ci introduce il protagonista attraverso i suoi occhi, ma attraverso l'effetto che produce sugli altri. Un pilot che accumula ferite, silenzi e attriti — e che chiede pazienza prima di rivelare quanto valga la pena aspettare.</p>
+      <div class="card-footer">
+        <span class="card-date">18 aprile 2026</span>
+        <span class="card-cta">Leggi
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 7h12M7 1l6 6-6 6"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </a>
+
+  <!-- CARD EP.2 -->
+  <a href="recensioni/il-nostro-meglio/ep2.html" class="review-card" data-type="serie" data-year="2026" data-tag="serie 2026">
+    <div class="card-thumb">
+      <div class="card-badge">Episodio</div>
+      <div class="card-thumb-placeholder">
+        <span class="card-thumb-serie">Il nostro meglio</span>
+      </div>
+      <div class="card-score">8.5</div>
+    </div>
+    <div class="card-body">
+      <p class="card-meta">
+        We Are All Trying Here
+        <span class="card-meta-sep">·</span>
+        Ep. 2 di 12
+        <span class="card-meta-sep">·</span>
+        JTBC / Netflix
+      </p>
+      <h2 class="card-title">Tutto ciò che non diciamo</h2>
+      <p class="card-subtitle">Il secondo episodio stringe il cerchio. E la tensione inizia a diventare qualcosa di più complicato.</p>
+      <p class="card-excerpt">Park Hae-young prende i silenzi del pilot e li trasforma in dialogo. Dong-man e Eun-a cominciano a occupare lo stesso spazio emotivo — e nessuno dei due sa ancora come chiamarlo.</p>
+      <div class="card-footer">
+        <span class="card-date">25 aprile 2026</span>
+        <span class="card-cta">Leggi
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 7h12M7 1l6 6-6 6"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ═══ FILM SECTION ═══ -->
+<div class="section-sep" style="margin-top: 1rem;">
+  <span class="section-sep-label">Film</span>
+  <span class="section-sep-line"></span>
+</div>
+
+<div class="cards-grid" id="cards-grid-film">
+
+  <!-- CARD ONCE WE WERE US -->
+  <a href="once-we-were-us.html" class="review-card" data-type="film" data-year="2025" data-tag="film 2025">
+    <div class="card-thumb">
+      <div class="card-badge">Film</div>
+      <div class="card-thumb-placeholder">
+        <span class="card-thumb-serie">Once We Were Us</span>
+      </div>
+      <div class="card-score">8</div>
+    </div>
+    <div class="card-body">
+      <p class="card-meta">
+        Once We Were Us
+        <span class="card-meta-sep">·</span>
+        2025
+        <span class="card-meta-sep">·</span>
+        Cinema coreano
+      </p>
+      <h2 class="card-title">Una perdita che non ha nome</h2>
+      <p class="card-subtitle">Koo Kyo-hwan in un film sul tempo che scorre e su quello che resta quando si smette di guardare avanti.</p>
+      <p class="card-excerpt">Un film che parla di separazione senza dichiararlo mai davvero. Di due persone che smettono di capirsi per ragioni che nessuno dei due riesce a spiegare — e che continuano ad amarsi in modo sbagliato ancora per molto tempo.</p>
+      <div class="card-footer">
+        <span class="card-date">2025</span>
+        <span class="card-cta">Leggi
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 7h12M7 1l6 6-6 6"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-logo">Fotogrammi Coreani</div>
+  <p class="footer-tagline">Recensioni di kdrama. Frame dopo frame, emozione dopo emozione.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Reddit</a>
+    <a href="#">Newsletter</a>
+    <a href="#">Chi sono</a>
+  </div>
+  <p class="footer-copy">© 2026 Fotogrammi Coreani</p>
+</footer>
+
+<script>
+  function filterCards(type, btn) {
+    // update active pill
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+
+    const allCards = document.querySelectorAll('.review-card');
+    let visible = 0;
+
+    allCards.forEach(card => {
+      const matchType = type === 'all' || card.dataset.type === type;
+      const matchYear = type === 'all' || !['2025','2026'].includes(type) || card.dataset.year === type;
+      const show = (type === 'all') || (card.dataset.type === type) || (card.dataset.year === type);
+
+      if (show) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // update section separators visibility
+    updateSectionSeps(type);
+
+    document.getElementById('results-count').textContent =
+      visible + (visible === 1 ? ' contenuto' : ' contenuti');
+  }
+
+  function updateSectionSeps(type) {
+    // Show/hide section separators based on filter
+    const serieCards  = [...document.querySelectorAll('.review-card[data-type="serie"]')].filter(c => c.style.display !== 'none');
+    const filmCards   = [...document.querySelectorAll('.review-card[data-type="film"]')].filter(c => c.style.display !== 'none');
+    const seps        = document.querySelectorAll('.section-sep');
+
+    // first sep = serie, second = film
+    if (seps[0]) seps[0].style.display = serieCards.length ? '' : 'none';
+    if (seps[1]) seps[1].style.display = filmCards.length  ? '' : 'none';
+  }
+</script>
+
+</body>
+</html>
