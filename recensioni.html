@@ -234,6 +234,12 @@
 
   /* thumbnail area */
   .card-thumb {
+    .card-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
     aspect-ratio: 16/9;
     background: var(--paper-warm);
     display: flex;
@@ -587,9 +593,9 @@
   <a href="once-we-were-us.html" class="review-card" data-type="film" data-year="2025" data-tag="film 2025">
     <div class="card-thumb">
       <div class="card-badge">Film</div>
-      <div class="card-thumb-placeholder">
-        <span class="card-thumb-serie">Once We Were Us</span>
-      </div>
+  <img src="images/thumbnail/once-we.jpg"
+     alt="Once We Were Us"
+     class="card-thumb-img">
       <div class="card-score">8</div>
     </div>
     <div class="card-body">
