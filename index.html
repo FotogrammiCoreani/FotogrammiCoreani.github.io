@@ -88,31 +88,40 @@
   }
   .site-nav a:hover { color: var(--accent); }
 
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
 
-  .lang-switch-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-  .lang-switch-top a {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--ink-muted);
-    transition: color 0.2s;
-  }
+.lang-switch a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
 
-  .lang-switch-top a:hover {
-    color: var(--accent);
-  }
+.lang-switch a:hover {
+  color: var(--accent);
+}
 
-  .lang-switch-top .active {
-    color: var(--ink);
-    font-weight: 500;
-  }
+.lang-switch .active-lang {
+  color: var(--accent);
+  font-weight: 500;
+}
 
+.lang-switch span {
+  color: var(--ink-muted);
+  opacity: 0.5;
+}
 
   /* ── HERO ── */
   .hero {
@@ -670,19 +679,20 @@
   <div class="header-inner">
     <a href="#" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
 
-    <nav>
-      <ul class="site-nav">
-        <li><a href="recensioni.html">Recensioni</a></li>
-        <li><a href="serie.html">Serie</a></li>
-        <li><a href="guide.html">Guide</a></li>
-        <li><a href="chi-sono.html">Chi sono</a></li>
-      </ul>
-    </nav>
+<nav class="nav-wrapper">
+  <ul class="site-nav">
+    <li><a href="recensioni.html">Recensioni</a></li>
+    <li><a href="serie.html">Serie</a></li>
+    <li><a href="guide.html">Guide</a></li>
+    <li><a href="chi-sono.html">Chi sono</a></li>
+  </ul>
 
-    <div class="lang-switch-top">
-      <a href="index.html" class="active">IT</a>
-      <a href="en/index.html">EN</a>
-    </div>
+  <div class="lang-switch">
+    <a href="index.html" class="active-lang">IT</a>
+    <span>/</span>
+    <a href="en/index.html">EN</a>
+  </div>
+</nav>
   </div>
 </header>
 
