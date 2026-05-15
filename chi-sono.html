@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi sono · Fotogrammi Coreani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #4a3f35;
+    --ink-muted: #9a8e84;
+    --paper: #f8f4ef;
+    --paper-warm: #f0e9df;
+    --paper-card: #fdfaf7;
+    --accent: #c0392b;
+    --accent-soft: #e8c5c0;
+    --accent-faint: #faf0ee;
+    --gold: #b8922a;
+    --gold-faint: #f7f0e0;
+    --border: rgba(26,20,16,0.12);
+    --border-soft: rgba(26,20,16,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .site-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .site-logo span { color: var(--accent); }
+  .site-nav { display: flex; gap: 2rem; list-style: none; }
+  .site-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .site-nav a:hover { color: var(--accent); }
+  .site-nav a.active { color: var(--accent); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 0;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb span { opacity: 0.4; }
+
+  /* ── HERO CHI SONO ── */
+  .about-hero {
+    max-width: 1100px;
+    margin: 4rem auto 0;
+    padding: 0 2rem;
+  }
+
+  .about-hero-text {
+    background: var(--ink);
+    padding: 4rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-hero-text::before {
+    content: '나';
+    position: absolute;
+    top: -0.1em;
+    right: -0.05em;
+    font-size: 16rem;
+    color: rgba(255,255,255,0.03);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .about-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-soft);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.1s ease forwards;
+  }
+  .about-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .about-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s ease forwards;
+  }
+
+  .about-hero-title em {
+    font-style: italic;
+    color: var(--accent-soft);
+  }
+
+  .about-hero-intro {
+    font-size: 15px;
+    color: rgba(248,244,239,0.6);
+    line-height: 1.75;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.3s ease forwards;
+  }
+
+  /* ── CORPO ── */
+  .about-body {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* lettera */
+  .about-letter { }
+
+  .letter-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+  }
+  .letter-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .about-letter p {
+    font-size: 16.5px;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 1.6rem;
+  }
+
+  .about-letter p:first-of-type {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.65;
+  }
+
+  .about-letter em { font-style: italic; color: var(--ink); }
+
+  .about-letter strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* pull quote */
+  .pull-quote {
+    border-left: 2px solid var(--accent);
+    padding: 1.25rem 1.75rem;
+    margin: 2.5rem 0;
+    background: var(--accent-faint);
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px !important;
+    line-height: 1.5 !important;
+    color: var(--ink) !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* firma */
+  .about-firma {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .firma-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .firma-text { }
+  .firma-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--ink);
+  }
+  .firma-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SIDEBAR ── */
+  .about-sidebar { }
+
+  .sidebar-block {
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+  }
+
+  .sidebar-block--dark {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .sidebar-title {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .sidebar-block--dark .sidebar-title {
+    color: rgba(248,244,239,0.4);
+    border-bottom-color: rgba(255,255,255,0.07);
+  }
+
+  /* serie del cuore */
+  .heart-series-list { list-style: none; }
+  .heart-series-item {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .heart-series-item:last-child { border-bottom: none; }
+  .heart-series-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .heart-series-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  /* numeri */
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .stat-cell {
+    padding: 1rem;
+    background: rgba(255,255,255,0.03);
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(248,244,239,0.4);
+  }
+
+  /* filosofia */
+  .philosophy-list { list-style: none; }
+  .philosophy-item {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-weight: 300;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .philosophy-item:last-child { border-bottom: none; }
+  .philosophy-item::before {
+    content: '—';
+    color: var(--accent);
+    flex-shrink: 0;
+    font-weight: 400;
+  }
+
+  /* contatti */
+  .contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border-soft);
+    transition: color 0.2s;
+  }
+  .contact-link:last-child { border-bottom: none; }
+  .contact-link:hover { color: var(--accent); }
+  .contact-link svg { width: 12px; height: 12px; opacity: 0.4; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(248,244,239,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 13px; margin-bottom: 2rem; font-style: italic; font-family: 'Playfair Display', serif; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+  .footer-links a { font-size: 12px; color: rgba(248,244,239,0.5); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12px; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .about-hero-text { padding: 2.5rem 2rem; }
+    .about-body { grid-template-columns: 1fr; gap: 3rem; }
+  }
+  @media (max-width: 600px) {
+    .site-nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="index.html#recensioni">Recensioni</a></li>
+        <li><a href="#">Serie</a></li>
+        <li><a href="#">Guide</a></li>
+        <li><a href="chi-sono.html" class="active">Chi sono</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a>
+  <span>/</span>
+  Chi sono
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="about-hero">
+
+  <div class="about-hero-text">
+    <p class="about-eyebrow">Chi c'è dietro il blog</p>
+    <h1 class="about-hero-title">Un ragazzo italiano<br>innamorato del cinema<br><em>che ha ancora qualcosa da dire</em></h1>
+    <p class="about-hero-intro">Fotogrammi Coreani nasce da una convinzione semplice: che il kdrama non sia intrattenimento di nicchia, ma uno dei pochi posti rimasti in cui il cinema parla davvero di noi.</p>
+  </div>
+
+</section>
+
+<!-- ═══ CORPO ═══ -->
+<div class="about-body">
+
+  <!-- LETTERA -->
+  <div class="about-letter">
+    <p class="letter-label">Una lettera a chi legge</p>
+
+    <p>Se sei qui, probabilmente capisci già di cosa parlo. Quella sensazione che rimane dopo un episodio di <em>My Mister</em>, o dopo la scena finale di <em>My Liberation Notes</em> — qualcosa che non riesci a spiegare bene, ma che sai che non ti darà il cinema che guardi di solito.</p>
+
+    <p>Sono un ragazzo italiano, e ho aperto questo blog perché avevo bisogno di un posto in cui parlare di kdrama nel modo in cui merita — non con le schede tecniche e i riassunti di trama, ma con l'attenzione che si riserva al cinema che conta. Perché il kdrama, almeno quello che mi interessa, è cinema che conta.</p>
+
+    <div class="pull-quote">
+      <p>Credo che il cinema occidentale stia esaurendo la materia narrativa. Il cinema coreano, invece, ha ancora qualcosa da dire.</p>
+    </div>
+
+    <p>Qualcuno obietterà che la Corea reale è ben lontana dalle narrazioni patinate dei drama — dalle storie d'amore lente, dai paesaggi silenziosi, dalla vita che sembra avere un ritmo diverso. È vero. Ma io credo che sia proprio da quella distanza che nasce il cinema coreano più interessante. I suoi registi e sceneggiatori non raccontano la Corea com'è: raccontano la Corea che vorrebbe essere, e nel farlo rivelano tutto quello che la Corea sa di non essere ancora. Sono gli <strong>anticorpi di una società che si rende conto di vivere in una distopia</strong> e cerca, a modo suo, di reagire.</p>
+
+    <p>Noi, in Occidente, siamo ancora lontani da questa consapevolezza. Forse è per questo che certi drama fanno così male — e così bene.</p>
+
+    <p>C'è anche un'altra cosa che mi ha convinto, nel tempo: la concezione dell'amore. Nel kdrama, l'amore non è un evento. È un processo lento, fatto di attenzione, di silenzi condivisi, di piccoli gesti che si accumulano fino a diventare qualcosa di irreversibile. È una visione dell'amore che il cinema occidentale ha quasi dimenticato — o forse non ha mai saputo raccontare con questa pazienza.</p>
+
+    <p>Fotogrammi Coreani è il posto in cui cerco di capire tutto questo. Recensione per recensione, episodio per episodio. Senza fretta — un po' come i drama che amo.</p>
+
+    <div class="about-firma">
+      <div class="firma-avatar">F</div>
+      <div class="firma-text">
+        <div class="firma-name">Fotogrammi Coreani</div>
+        <div class="firma-sub">Roma · dal 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="about-sidebar">
+
+<div class="sidebar-block" style="padding: 0; overflow: hidden; max-width: 260px; margin: 0 auto 1.5rem;">
+  <img 
+    src="images/myself.jpeg" 
+    alt="Fotogrammi Coreani"
+    style="
+      width: 100%;
+      height: auto;
+      display: block;
+    "
+  >
+
+  <div style="padding: 1rem 1.25rem;">
+    <p style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted);">
+</div>
+
+    <div class="sidebar-block sidebar-block--dark">
+      <div class="sidebar-title">Il blog in numeri</div>
+      <div class="stat-grid">
+        <div class="stat-cell">
+          <div class="stat-num">02</div>
+          <div class="stat-label">Recensioni</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">01</div>
+          <div class="stat-label">Serie in corso</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">9.2</div>
+          <div class="stat-label">Voto più alto</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Episodi guardati</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Le serie del cuore</div>
+      <ul class="heart-series-list">
+        <li class="heart-series-item">
+          <span class="heart-series-title">My Mister</span>
+          <span class="heart-series-note">2018 · il vertice</span>
+        </li>
+        <li class="heart-series-item">
+          <span class="heart-series-title">My Liberation Notes</span>
+          <span class="heart-series-note">2022 · la rivelazione</span>
+        </li>
+        <li class="heart-series-item">
+          <span class="heart-series-title">We Are All Trying Here</span>
+          <span class="heart-series-note">2026 · in corso</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Come scrivo</div>
+      <ul class="philosophy-list">
+        <li class="philosophy-item">Nessun riassunto di trama: solo analisi</li>
+        <li class="philosophy-item">Attenzione alla sceneggiatura, alla fotografia, ai dialoghi</li>
+        <li class="philosophy-item">Il drama trattato come cinema — perché spesso lo è</li>
+        <li class="philosophy-item">Una voce personale, non una scheda tecnica</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Contatti</div>
+      <a href="#" class="contact-link">
+        Instagram
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+      </a>
+      <a href="#" class="contact-link">
+        Reddit
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+      </a>
+      <a href="#" class="contact-link">
+        Newsletter
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+  </aside>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-logo">Fotogrammi Coreani</div>
+  <p class="footer-tagline">Recensioni di kdrama. Non riassunti — analisi.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Reddit</a>
+    <a href="#">Newsletter</a>
+    <a href="chi-sono.html">Chi sono</a>
+  </div>
+  <p class="footer-copy">© 2026 Fotogrammi Coreani</p>
+</footer>
+
+</body>
+</html>
