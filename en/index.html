@@ -88,6 +88,40 @@
   }
   .site-nav a:hover { color: var(--accent); }
 
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lang-switch a {
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.lang-switch a:hover {
+  color: var(--accent);
+}
+
+.lang-switch .active-lang {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.lang-switch span {
+  color: var(--ink-muted);
+  opacity: 0.5;
+}
 
   .lang-switch-top {
     display: flex;
@@ -670,19 +704,20 @@
   <div class="header-inner">
     <a href="#" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
 
-    <nav>
-      <ul class="site-nav">
-        <li><a href="#recensioni">Reviews</a></li>
-        <li><a href="#serie">Serie</a></li>
-        <li><a href="#">Guide</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </nav>
+<nav class="nav-wrapper">
+  <ul class="site-nav">
+    <li><a href="#recensioni">Reviews</a></li>
+    <li><a href="#serie">Series</a></li>
+    <li><a href="#">Guides</a></li>
+    <li><a href="chi-sono-en.html">About</a></li>
+  </ul>
 
-    <div class="lang-switch-top">
-      <a href="../index.html">IT</a>
-      <a href="index.html" class="active">EN</a>
-    </div>
+  <div class="lang-switch">
+    <a href="../index.html">IT</a>
+    <span>/</span>
+    <a href="index.html" class="active-lang">EN</a>
+  </div>
+</nav>
   </div>
 </header>
 
@@ -693,7 +728,7 @@
 
     <!-- colonna sinistra: manifesto editoriale -->
     <div class="hero-text">
-      <p class="hero-eyebrow">Reviews di qualità · kdrama in italiano</p>
+      <p class="hero-eyebrow">Quality reviews · kdrama</p>
       <h1 class="hero-title">Korean drama,<br>examined <em>closely</em></h1>
       <p class="hero-desc">Reviews approfondite di kdrama — con attenzione alla sceneggiatura, alla fotografia, ai dialoghi. Non riassunti di trama: analisi.</p>
       <a href="#recensioni" class="hero-cta">
@@ -704,16 +739,20 @@
 
     <!-- colonna destra: ultima recensione in primo piano -->
     <a href="ep2-il-nostro-meglio.html" class="hero-featured" style="text-decoration:none;">
-      <div class="hero-featured-img">
-        <span class="hero-featured-img-label">Episode cover</span>
-      </div>
+ <div class="hero-featured-img"
+     style="
+     background-image:url('../images/scenes/passaggio-a-livello.jpg');
+     background-size:cover;
+     background-position:center;
+     ">
+</div>
       <div class="hero-featured-overlay">
         <div class="featured-pill">★ Latest review</div>
         <div class="featured-series">We Are All Trying Here · Ep. 2 · JTBC / Netflix 2026</div>
-        <h2 class="featured-ep-title">Everything We Never Say</h2>
+        <h2 class="featured-ep-title">Keep screaming until the world hears you</h2>
         <div class="featured-meta">
           Park Hae-young · Cha Young-hoon
-          <span class="featured-score-badge">9.2</span>
+          <span class="featured-score-badge">8</span>
         </div>
         <span class="featured-read-link">
           Read review
@@ -727,16 +766,16 @@
   <!-- strip numeri blog -->
   <div class="hero-strip">
     <div class="strip-cell">
-      <div class="strip-num">02</div>
-      <div class="strip-label"><strong>Reviews pubblicate</strong>continuously updated</div>
+      <div class="strip-num">03</div>
+      <div class="strip-label"><strong>Published Reviews</strong>continuously updated</div>
     </div>
     <div class="strip-cell">
       <div class="strip-num">01</div>
       <div class="strip-label"><strong>Currently covering</strong>Il nostro meglio · 2026</div>
     </div>
     <div class="strip-cell">
-      <div class="strip-num">9.2</div>
-      <div class="strip-label"><strong>Highest score</strong>We Are All Trying Here, ep. 2</div>
+      <div class="strip-num">8</div>
+      <div class="strip-label"><strong>Highest score</strong>We Are All Trying Here, ep. 1</div>
     </div>
   </div>
 
@@ -744,20 +783,24 @@
 
 <!-- ═══ RECENSIONI ═══ -->
 <div class="section-divider" id="recensioni">
-  <h2>Reviews recenti</h2>
+  <h2>Recent reviews</h2>
 </div>
 
 <div class="reviews-grid">
 
   <!-- card grande: ep. 2 -->
   <a href="ep2-il-nostro-meglio.html" class="card card--wide">
-    <div class="card-image-block">
-      <span class="card-image-label">Episode cover</span>
-    </div>
+<div class="card-image-block"
+     style="
+     background-image:url('../images/scenes/passaggio-a-livello.jpg');
+     background-size:cover;
+     background-position:center;
+     ">
+</div>
     <div class="card-content">
       <span class="card-num">01</span>
       <p class="card-tag">Review · Ep. 2</p>
-      <h2 class="card-title">Il nostro meglio — Everything We Never Say</h2>
+      <h2 class="card-title">We Are All Trying Here — Keep screaming until the world hears you.</h2>
       <p class="card-excerpt">Park Hae-young writes as if she were translating silence itself. The emotion-tracking watch, the railroad crossing, the name screamed from a cliffside — this episode becomes an essay on unspoken grief. Two mirrored solitudes drawn toward each other before they even understand why.</p>
       <div class="card-footer">
         <span class="card-meta">May 2026 · 8 min</span>
@@ -770,7 +813,7 @@
   <a href="ep1-il-nostro-meglio.html" class="card">
     <span class="card-num">02</span>
     <p class="card-tag">Review · Ep. 1</p>
-    <h2 class="card-title">We Are All Trying Here — The Weight of Twenty Years of Waiting</h2>
+    <h2 class="card-title">We Are All Trying Here — The weight of 20 years of waiting</h2>
     <p class="card-excerpt">A drama that begins with a man screaming. Not out of anger — but to exist. Park Hae-young's pilot establishes its emotional register with surgical precision.</p>
     <div class="card-footer">
       <span class="card-meta">April 2026 · 6 min</span>
