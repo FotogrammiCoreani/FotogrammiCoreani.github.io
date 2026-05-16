@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Once We Were Us (2025) — Recensione · Fotogrammi Coreani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #4a3f35;
+    --ink-muted: #9a8e84;
+    --paper: #f8f4ef;
+    --paper-warm: #f0e9df;
+    --paper-card: #fdfaf7;
+    --accent: #c0392b;
+    --accent-soft: #e8c5c0;
+    --accent-faint: #faf0ee;
+    --gold: #b8922a;
+    --gold-faint: #f7f0e0;
+    --border: rgba(26,20,16,0.12);
+    --border-soft: rgba(26,20,16,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .site-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .site-logo span { color: var(--accent); }
+
+  .site-nav { display: flex; gap: 2rem; list-style: none; }
+
+  .site-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .site-nav a:hover { color: var(--accent); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 0;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb span { opacity: 0.4; }
+
+  /* ── REVIEW ── */
+  .review-section {
+    max-width: 1100px;
+    margin: 3rem auto 0;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+  }
+
+  .review-header { margin-bottom: 2.5rem; }
+
+  .review-series {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-series::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .review-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .review-byline {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .byline-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .byline-info { font-size: 13px; }
+  .byline-name { font-weight: 500; color: var(--ink); }
+  .byline-date { color: var(--ink-muted); }
+
+  .score-bar {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--accent);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .score-item { text-align: center; }
+  .score-item-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2px; }
+  .score-item-val { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
+
+  .review-body { font-size: 16px; line-height: 1.85; color: var(--ink-soft); font-weight: 300; }
+  .review-body p { margin-bottom: 1.5rem; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin: 2.5rem 0 1.25rem;
+    gap: 1rem;
+  }
+
+  .section-heading h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .section-score-wrap {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .section-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .section-score-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .review-body blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--accent-faint);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .review-body blockquote cite {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .review-image {
+    margin: 2.5rem 0;
+  }
+
+  .review-image img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    border: 1px solid var(--border-soft);
+  }
+
+  .review-image figcaption {
+    margin-top: 0.75rem;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .symbol-box {
+    background: var(--gold-faint);
+    border: 1px solid rgba(184,146,42,0.22);
+    border-left: 3px solid var(--gold);
+    padding: 1.35rem 1.5rem;
+    margin: 2.25rem 0;
+    font-size: 15px;
+    line-height: 1.78;
+    color: var(--ink-soft);
+    position: relative;
+  }
+
+  .symbol-box strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .symbol-box em { color: var(--ink); }
+
+  /* ── SCENE CARDS ── */
+  .scene-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 2rem 0 2.5rem;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .scene-card {
+    background: var(--paper-card);
+    padding: 1.4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scene-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .scene-card:hover::before { opacity: 1; }
+
+  .scene-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--paper-warm);
+    position: absolute;
+    top: 0.5rem; right: 1rem;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .scene-card-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .scene-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .scene-card-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  /* ── PRO / CONTRO ── */
+  .pros-cons-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin: 3rem 0 2.5rem;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .pros-cons-col {
+    background: var(--paper-card);
+    padding: 1.5rem;
+  }
+
+  .pros-cons-col.pro { border-top: 3px solid #6f9f72; }
+  .pros-cons-col.con { border-top: 3px solid #b86b5f; }
+
+  .pros-cons-title {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .pros-cons-col.pro .pros-cons-title { color: #5f8f62; }
+  .pros-cons-col.con .pros-cons-title { color: #a85f55; }
+
+  .pros-cons-list { list-style: none; padding: 0; margin: 0; }
+
+  .pros-cons-list li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .pros-cons-list li::before { content: "•"; position: absolute; left: 0; }
+
+  /* ── IMPRESSIONI ── */
+  .impressioni-section {
+    border-top: 2px solid var(--accent);
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+
+  .impressioni-label {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.75rem;
+  }
+
+  .impressioni-section p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 1.4rem;
+    font-style: italic;
+  }
+
+  .impressioni-section p em {
+    font-style: normal;
+    color: var(--ink);
+  }
+
+  .impressioni-firma {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { padding-top: 0.5rem; }
+
+  .sidebar-block {
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+  }
+
+  .sidebar-title {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--ink-muted); }
+  .info-val { font-weight: 500; color: var(--ink); text-align: right; }
+
+  .final-verdict {
+    background: var(--ink-soft);
+    color: var(--paper);
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .verdict-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .verdict-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+
+  .verdict-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag-pill {
+    font-size: 11px;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tag-pill:hover { background: var(--ink); color: var(--paper); }
+
+  /* ── CAST GRID ── */
+  .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid var(--border-soft);
+    background: var(--border-soft);
+  }
+
+  .cast-cell {
+    background: var(--paper-card);
+    padding: 1.25rem;
+  }
+
+  .cast-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cast-photo-placeholder {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid var(--border-soft);
+    background: linear-gradient(135deg, var(--paper-warm), var(--accent-faint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+
+  .cast-actor { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .cast-character { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.02em; }
+  .cast-note { font-size: 12px; color: var(--ink-soft); margin-top: 6px; font-style: italic; line-height: 1.5; }
+
+  .intro-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  /* ── TIMELINE VISIVA ── */
+  .timeline-strip {
+    display: flex;
+    gap: 2px;
+    margin: 2rem 0 2.5rem;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .timeline-block {
+    flex: 1;
+    padding: 1.25rem 1.2rem;
+    background: var(--paper-card);
+    position: relative;
+  }
+
+  .timeline-block.present {
+    background: #f2f2f0;
+    filter: saturate(0.4) brightness(0.96);
+  }
+
+  .timeline-year {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    line-height: 1;
+  }
+
+  .timeline-block.present .timeline-year {
+    color: var(--ink-muted);
+  }
+
+  .timeline-desc {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  .timeline-label {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-block.present .timeline-label {
+    color: var(--ink-muted);
+  }
+
+  /* ── SCENE IMAGE ── */
+  .scene-image { max-width: 720px; margin: 2.5rem auto; }
+  .scene-image img {
+    width: 100%; max-height: 430px; object-fit: cover;
+    display: block; border-radius: 4px; border: 1px solid var(--border-soft);
+  }
+  .scene-caption {
+    margin-top: 0.7rem; font-size: 13px; line-height: 1.5;
+    color: var(--ink-muted); font-style: italic; text-align: center;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(248,244,239,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 13px; margin-bottom: 2rem; font-style: italic; font-family: 'Playfair Display', serif; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+  .footer-links a { font-size: 12px; color: rgba(248,244,239,0.5); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .review-section { grid-template-columns: 1fr; }
+    .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .cast-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .site-nav { display: none; }
+    .sidebar { grid-template-columns: 1fr; }
+    .scene-cards { grid-template-columns: 1fr; }
+    .pros-cons-box { grid-template-columns: 1fr; }
+    .timeline-strip { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="../../recensioni.html">Recensioni</a></li>
+        <li><a href="../../serie.html">Serie</a></li>
+        <li><a href="../../guide.html">Guide</a></li>
+        <li><a href="../../chi-sono.html">Chi sono</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="breadcrumb">
+  <a href="../../index.html">Home</a>
+  <span>/</span>
+  <a href="#">Recensioni</a>
+  <span>/</span>
+  Once We Were Us
+</div>
+
+<!-- ═══ RECENSIONE ═══ -->
+<article class="review-section">
+  <div>
+    <header class="review-header">
+      <p class="review-series">Film · Showbox 2025 · Remake di <em>Us and Them</em> (2018)</p>
+      <h1 class="review-title">Once We Were Us</h1>
+      <p class="review-subtitle">Una storia d'amore che non cerca colpevoli. Il che è molto più crudele.</p>
+
+      <div class="review-byline">
+        <div class="byline-avatar">F</div>
+        <div class="byline-info">
+          <div class="byline-name">Fotogrammi Coreani</div>
+          <div class="byline-date">16 maggio 2026 · 10 minuti di lettura</div>
+        </div>
+      </div>
+
+      <div class="score-bar">
+        <div class="score-item"><div class="score-item-label">Sceneggiatura</div><div class="score-item-val">7.0</div></div>
+        <div class="score-item"><div class="score-item-label">Recitazione</div><div class="score-item-val">8.0</div></div>
+        <div class="score-item"><div class="score-item-label">Regia</div><div class="score-item-val">8.0</div></div>
+        <div class="score-item"><div class="score-item-label">Fotografia</div><div class="score-item-val">7.0</div></div>
+      </div>
+    </header>
+
+    <div class="review-body">
+
+      <p>C'è un momento, abbastanza presto nel film, in cui Eun-ho sposta il ventilatore verso di sé. Jeong-won era lì un secondo prima, il soffio d'aria era per tutti e due. Lui lo gira, e lei resta immobile nel caldo. Non dice nulla. Lui non se ne accorge, o forse sì. Ed è in quel gesto che Kim Do-young condensa quello che il film vuole davvero raccontare: non una storia d'amore che finisce per una grande crisi, ma una che si consuma lentamente, millimetro per millimetro, attraverso la somma di tutti i piccoli egoismi che non nominiamo mai.</p>
+
+      <p><em>Once We Were Us</em> è il remake coreano del film cinese <em>Us and Them</em> (2018) di Rene Liu — una delle storie d'amore più seguite in Asia negli ultimi anni. La versione coreana, affidata alla regista Kim Do-young (già autrice di <em>Kim Ji-young, Born 1982</em>), porta lo stesso impianto narrativo dentro un vocabolario emotivo specificamente coreano: orgoglio maschile, pudore femminile, la vergogna del fallimento economico come forza invisibile che governa l'intimità. Il risultato è un film che sulla carta somiglia a molti altri, ma che sotto la superficie fa qualcosa di più onesto e doloroso della maggior parte di essi.</p>
+
+      <!-- STRUTTURA TEMPORALE -->
+      <div class="timeline-strip">
+        <div class="timeline-block">
+          <div class="timeline-label">Il passato</div>
+          <div class="timeline-year">2008</div>
+          <div class="timeline-desc">Seoul: un autobus per tornare a casa a Capodanno. Eun-ho e Jeong-won si siedono uno accanto all'altra per caso. La città è dura, i sogni sono ancora interi.</div>
+        </div>
+        <div class="timeline-block">
+          <div class="timeline-label">Il momento</div>
+          <div class="timeline-year">~2013</div>
+          <div class="timeline-desc">La separazione. Non c'è un traditore, non c'è un colpo di scena. Solo due persone che si amano davvero e che non riescono a stare nello stesso posto allo stesso tempo.</div>
+        </div>
+        <div class="timeline-block present">
+          <div class="timeline-label">Il presente</div>
+          <div class="timeline-year">Oggi</div>
+          <div class="timeline-desc">Un volo per Seoul. I due si ritrovano seduti vicini. Il film costruisce il passato attraverso il modo in cui entrambi evitano di guardarlo.</div>
+        </div>
+      </div>
+
+      <!-- SCENEGGIATURA -->
+      <div class="section-heading">
+        <h3>Sceneggiatura: amare nel momento sbagliato</h3>
+        <div class="section-score-wrap">
+          <div class="section-score">7.5</div>
+          <div class="section-score-label">Voto sezione</div>
+        </div>
+      </div>
+
+      <!-- SCENE CHIAVE -->
+      <div class="scene-cards">
+        <div class="scene-card">
+          <span class="scene-card-num">01</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">L'autobus di Capodanno</h4>
+          <p class="scene-card-desc">La prima volta che si siedono l'uno accanto all'altra. Eun-ho disegna il suo ritratto di nascosto. È il gesto di qualcuno che vuole possedere un momento prima ancora di capire perché ci tiene.</p>
+        </div>
+        <div class="scene-card">
+          <span class="scene-card-num">02</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">Eun-ho apre apre la finestra</h4>
+          <p class="scene-card-desc">Il simbolo visivo più efficace del film: lui tira la tenda e illumina il viso...</p>
+        </div>
+        <div class="scene-card">
+          <span class="scene-card-num">03</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">Il treno che lei prende sola</h4>
+          <p class="scene-card-desc">Eun-ho sale sul treno. Lui non la segue, anche se potrebbe. Entrambi sanno che se lo facesse, lei resterebbe. È forse la scena più onesta del film: a volte si lascia andare qualcuno non perché non si voglia trattenerlo, ma perché si sa di non meritarlo ancora.</p>
+        </div>
+        <div class="scene-card">
+          <span class="scene-card-num">04</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">La stanza d'albergo (epilogo)</h4>
+          <p class="scene-card-desc">Il presente: il volo è fermo, loro sono insieme in una stanza. Non succede nulla di definitivo. Non deve. Il film capisce che certe storie non hanno una seconda possibilità — hanno solo un momento in cui finalmente ci si guarda davvero.</p>
+        </div>
+      </div>
+
+      <p>La struttura narrativa di <em>Once We Were Us</em> è quella del rimpianto raccontato a ritroso: il film apre nel presente — un aereo bloccato a terra, due ex che si ritrovano seduti vicini — e costruisce il passato attraverso flashback estesi, lunghi, densi di dettagli. È una scelta che conosce i suoi rischi: il presente rischia di diventare una cornice inerte, un semplice contenitore per le scene del passato. Kim Do-young evita questa trappola facendo del presente qualcosa di altrettanto carico: ogni volta che torniamo all'aereo, siamo un po' più consapevoli di quanto peso i due personaggi stiano portando nei loro corpi.</p>
+
+      <p>La cosa più coraggiosa che la sceneggiatura fa — e che la distingue da quasi tutte le storie d'amore coreane degli ultimi anni — è rifiutarsi di assegnare una colpa. Eun-ho e Jeong-won non si lasciano perché qualcuno ha mentito, o ha tradito, o è rimasto intrappolato in un equivoco da drama. Si lasciano perché lui non è ancora pronto per essere la persona di cui lei ha bisogno che lui sia. Perché lei sa di meritare qualcosa che lui non le sta dando. Il film non giudica nessuno dei due — e questo lo rende, paradossalmente, molto più doloroso di qualsiasi colpo di scena melodrammatico.</p>
+
+      <blockquote>
+        "Ci siamo conosciuti troppo presto. O forse troppo tardi. Non lo so. So solo che in quel momento non riuscivo a essere quello che volevi."
+        <cite>— Eun-ho [PLACEHOLDER — dialogo da verificare]</cite>
+      </blockquote>
+
+      <p>Quello che la sceneggiatura gestisce con meno sicurezza è la Seoul del 2008. Il film sfiora il contesto sociale senza mai affondare davvero: la precarietà economica di Eun-ho, la sua vergogna per il fallimento professionale, il peso della cosiddetta <em>sampo generation</em> — quella generazione che ha rinunciato a relazioni stabili, casa di proprietà e famiglia non per indifferenza, ma per necessità — sono elementi presenti, ma trattati per allusioni. Il film cinese originale li usava come struttura portante; il remake coreano li arretra a sfondo. È una scelta comprensibile, ma lascia a tratti la sensazione di guardare una storia d'amore privata del suo contesto più potente.</p>
+
+      <div class="symbol-box">
+        <strong>Il dettaglio narrativo · La luce</strong>
+        Il sole entra dalla finestra dell'appartamento. Jeong-won ci si siede dentro, cerca quella luce. Poi lui chiude le tende. È uno dei micro-gesti più precisi del film: non c'è nessuna crudeltà intenzionale nell'azione di Eun-ho — chiude le tende perché gli dà fastidio il riflesso sullo schermo, o semplicemente perché non pensa a lei. Ecco il punto. Non pensa a lei. E lei lo capisce in quel momento, forse, anche se non lo dice e non lo dirà per molto tempo ancora.
+      </div>
+
+      <p>Quello che rende la scrittura davvero efficace è la sua fiducia nei dettagli fisici. Kim Do-young eredita dal film originale la tendenza a fare degli oggetti dei veri e propri personaggi secondari: il ventilatore, la luce del sole, il divano su cui lui dorme mentre lei è distante, il ritratto che lui ha disegnato su un autobus anni prima. Ogni oggetto accumula significato nel corso del film senza che il dialogo debba mai spiegarlo. Quando torna, è già denso di storia.</p>
+
+      <!-- RECITAZIONE -->
+      <div class="section-heading">
+        <h3>Recitazione: due corpi che parlano lingue diverse</h3>
+        <div class="section-score-wrap">
+          <div class="section-score">8.5</div>
+          <div class="section-score-label">Voto sezione</div>
+        </div>
+      </div>
+
+      <p>Per chi ha seguito Koo Kyo-hwan negli ultimi anni — il villain algido di <em>D.P.</em>, il personaggio spezzato di <em>Decision to Leave</em> — vederlo qui in un ruolo romantico potrebbe sembrare un salto. È un salto, ma nella direzione giusta. Eun-ho è goffo, caloroso, rumoroso, pieno di difetti che lui non vede o che preferisce non nominare. Koo Kyo-hwan lo abita con una generosità fisica che non avevo mai visto in lui: c'è qualcosa di quasi infantile nel suo modo di occupare lo spazio nelle scene del passato, come di un uomo che non ha ancora imparato a fare i conti con i propri limiti.</p>
+
+      <p>È poi curioso ritrovarlo qui — per la terza volta — insieme a Kang Mal-geum (la moglie di Gyeong-se in <em>We Are All Trying Here</em>) e a partire da quest'anno anche nel cast di quella stessa serie. Il cinema coreano contemporaneo è un villaggio piccolo, e Koo Kyo-hwan ne è diventato uno degli abitanti più inamovibili.</p>
+
+      <figure class="review-image">
+        <img src="../../images/films/once-we-were-us-bus.jpg" alt="Eun-ho e Jeong-won sull'autobus">
+        <figcaption>
+          La prima scena: un autobus, un ritratto disegnato di nascosto, e la casual irresponsabilità di chi si sta innamorando senza saperlo ancora.
+        </figcaption>
+      </figure>
+
+      <p>Moon Ga-young fa qualcosa di più difficile: costruisce un personaggio che trattiene quasi tutto. Jeong-won sorride spesso, ascolta, cede. La sua resistenza non è mai urlata. È una forma di self-preservation silenziosa, il tipo di autodifesa che si impara a padroneggiare quando si è capito che esprimere un bisogno è più rischioso che tenerlo dentro. Moon Ga-young lavora con gli occhi e con le pause — c'è un momento in cui Jeong-won guarda Eun-ho che dorme, e il film resta su di lei per qualche secondo di troppo, quasi a volerle lasciare il tempo di decidere cosa fare di quello che sente. Non decide nulla. E la sua immobilità in quel momento è più eloquente di qualsiasi dialogo.</p>
+
+      <blockquote>
+        "Anche se ci lasciamo, incontriamoci ogni tanto. Non voglio perdere anche il posto sicuro."
+        <cite>— Jeong-won [PLACEHOLDER — dialogo da verificare]</cite>
+      </blockquote>
+
+      <p>La chimica tra i due funziona proprio perché non è mai troppo leggera. Nelle scene del passato c'è calore, c'è ironia, c'è la specifica goffaggine dei due corpi che ancora non sanno bene dove mettersi l'uno rispetto all'altro. Ma c'è sempre, anche nelle sequenze più luminose, qualcosa che non quadra del tutto — un lieve disallineamento nel ritmo, una risposta che arriva un secondo in ritardo. Kim Do-young pianta i semi della rottura fin dall'inizio, e i due attori le lasciano fare, senza mai smettere di sembrare innamorati.</p>
+
+      <div class="symbol-box">
+        <strong>Il momento chiave della recitazione · Il treno</strong>
+        Jeong-won sale sul treno. Eun-ho resta sul marciapiede. La scena dura pochissimo — non c'è un lungo addio, non c'è la corsa in extremis che il kdrama ci ha abituato ad aspettare. Lui resta fermo, e lei va. Moon Ga-young, nell'inquadratura finale prima che le porte si chiudano, ha un'espressione che non è tristezza pura: è la faccia di qualcuno che ha preso una decisione dolorosa e sa già, in quel momento stesso, che quel dolore è giusto. Koo Kyo-hwan, sul marciapiede, ha la faccia di qualcuno che lo capisce solo un secondo dopo, quando è già troppo tardi.
+      </div>
+
+      <!-- REGIA E FOTOGRAFIA -->
+      <div class="section-heading">
+        <h3>Regia e Fotografia: colori come memoria</h3>
+        <div class="section-score-wrap">
+          <div class="section-score">8+</div>
+          <div class="section-score-label">Voto sezione</div>
+        </div>
+      </div>
+
+      <p>La scelta più discussa del film — e a mio avviso la più riuscita — è quella cromatica. Il passato è caldo, saturo, quasi eccessivamente luminoso: le scene del 2008 hanno la qualità di una fotografia tenuta troppo a lungo nel portafogli, i bordi un po' consumati ma i colori ancora vivi. Il presente, quello dell'aereo e della stanza d'albergo, è desaturato, quasi in bianco e nero. È una convenzione visiva che il cinema usa spesso — probabilmente fin troppo — ma Kim Do-young le dà una motivazione precisa che il film rivela solo tardi, e che trasforma quella che sembrava una scelta estetica decorativa in qualcosa di emotivamente necessario. Non voglio dire altro per non togliere la sorpresa a chi non ha ancora visto il film.</p>
+
+      <p>Quello che convince di più nella regia è la gestione del tempo nelle scene del passato. Kim Do-young non ha fretta. Lascia che le sequenze domestiche si allunghino, che i silenzi abbiano il loro peso specifico, che la macchina da presa indugi sui corpi che stanno nello stesso appartamento senza davvero stare insieme. C'è una grammatica spaziale molto precisa: quando la relazione è al suo meglio, i due personaggi condividono sempre lo stesso quadro, spesso si toccano, si sovrappongono. Man mano che qualcosa si incrina, la regia comincia a separarli — inquadrature diverse, corpi che non si cercano più, lo spazio tra loro che cresce senza che nessuno lo dichiari.</p>
+
+      <figure class="review-image">
+        <img src="../../images/films/once-we-were-us-apartment.jpg" alt="Jeong-won nella luce">
+        <figcaption>
+          La luce entra. Poi lui chiude le tende. Certi film si capiscono in un singolo dettaglio fisico.
+        </figcaption>
+      </figure>
+
+      <p>Il punto debole della regia è forse il finale. Il film potrebbe concludersi in almeno tre momenti diversi, e Kim Do-young sceglie di andare avanti ogni volta — aggiungendo una scena, poi un'altra, poi ancora una. C'è probabilmente la paura di lasciare lo spettatore senza una risposta chiara, ma quella paura fa perdere al film qualcosa di prezioso: la capacità di restare sospeso, di lasciare che il finale fosse — come la relazione stessa — incompleto e onesto. La coda finale si sente come una concessione al genere, un passo indietro rispetto alla maturità che il resto del film aveva mostrato.</p>
+
+      <!-- LE MIE IMPRESSIONI -->
+      <div class="impressioni-section">
+
+        <div class="impressioni-label">
+          <span>✦</span> Le mie impressioni
+        </div>
+
+        <p>Ho guardato <em>Us and Them</em> originale qualche anno fa, in una di quelle serate in cui si finisce per piangere su un film cinese che non si aveva nessuna intenzione di guardare. Me lo ricordo come qualcosa di bellissimo e un po' estenuante, nel modo in cui sono estenuanti le cose a cui tieni troppo. Il remake coreano è una storia diversa — più leggera in alcuni punti, più precisa in altri — e ho impiegato un po' a decidermi su cosa pensarne.</p>
+
+        <p>Quello che mi è rimasto, alla fine, è il ventilatore. E la luce chiusa fuori dalla finestra. Sono dettagli su cui il film non si sofferma, che non vengono commentati da nessun personaggio, che non fanno parte di nessun dialogo emotivamente esplicito. Eppure mi ritrovo a pensarci ancora, il che è probabilmente la misura più onesta dell'efficacia di un film: non quanto ti commuove mentre lo guardi, ma quante volte ci torni dopo che è finito.</p>
+
+        <p>Koo Kyo-hwan è una rivelazione in un ruolo romantico, e lo dico senza riserve. Ma è Moon Ga-young che mi ha sorpreso di più, forse perché mi aspettavo qualcosa di più convenzionale e invece ho trovato una performance costruita quasi interamente su quello che il personaggio decide di non dire. Jeong-won è uno di quei personaggi femminili coreani in cui la forza non è mai dichiarata — è silenziosa, è paziente, è dolorosamente contenuta. E Moon Ga-young la abita con una misura che non ho visto spesso.</p>
+
+        <p>Il film non è perfetto. La struttura temporale funziona meglio nelle scene del passato che in quelle del presente, e il finale dura un atto di troppo. Ma ha quella qualità rara di farti sentire riconosciuto in qualcosa di specifico — non nel grande dolore astratto dell'amore perduto, ma in quello micro e preciso del ventilatore girato dall'altra parte. E quella è una qualità per cui vale la pena perdonare molto.</p>
+
+        <div class="impressioni-firma">
+          — Leonardo
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRO / CONTRO -->
+    <div class="pros-cons-box">
+      <div class="pros-cons-col pro">
+        <div class="pros-cons-title">Cosa funziona</div>
+        <ul class="pros-cons-list">
+          <li>Il rifiuto di assegnare colpe: la storia finisce, e nessuno ha torto. È la scelta più coraggiosa del film.</li>
+          <li>La grammatica visiva degli oggetti — il ventilatore, la luce, il ritratto — che accumula significato senza mai spiegarsi.</li>
+          <li>Moon Ga-young: una performance costruita sul trattenuto, che dice tutto attraverso quello che non dice.</li>
+          <li>La fotografia, con il contrasto cromatico tra passato e presente che ha una motivazione narrativa precisa e tardiva.</li>
+          <li>Koo Kyo-hwan in un registro inedito — caldo, goffo, vulnerabile — che funziona molto meglio di quanto ci si aspetterebbe.</li>
+        </ul>
+      </div>
+      <div class="pros-cons-col con">
+        <div class="pros-cons-title">Cosa convince meno</div>
+        <ul class="pros-cons-list">
+          <li>Il contesto sociale del 2008 — la precarietà, la <em>sampo generation</em> — è evocato ma non davvero esplorato.</li>
+          <li>Il presente (l'aereo, la stanza) è meno riuscito del passato: rischia di diventare cornice inerte.</li>
+          <li>Il finale dura un atto di troppo: il film potrebbe concludersi prima e guadagnarci in precisione emotiva.</li>
+          <li>Alcuni personaggi secondari restano abbozzati, funzionali alla coppia ma mai davvero presenti.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="final-verdict">
+      <div class="verdict-score">7.5</div>
+      <div class="verdict-label">Voto complessivo</div>
+      <p class="verdict-text">"Un film che non cerca colpevoli. Il che è, paradossalmente, la cosa più dolorosa che potesse fare."</p>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Scheda tecnica</div>
+      <div class="info-row"><span class="info-label">Titolo originale</span><span class="info-val">만약에 우리</span></div>
+      <div class="info-row"><span class="info-label">Anno</span><span class="info-val">2025</span></div>
+      <div class="info-row"><span class="info-label">Paese</span><span class="info-val">Corea del Sud</span></div>
+      <div class="info-row"><span class="info-label">Durata</span><span class="info-val">1h 55min</span></div>
+      <div class="info-row"><span class="info-label">Regia</span><span class="info-val">Kim Do-young</span></div>
+      <div class="info-row"><span class="info-label">Distribuzione</span><span class="info-val">Showbox</span></div>
+      <div class="info-row"><span class="info-label">Uscita</span><span class="info-val">31 dicembre 2025</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Cast principale</div>
+      <div class="info-row"><span class="info-label">Eun-ho</span><span class="info-val">Koo Kyo-hwan</span></div>
+      <div class="info-row"><span class="info-label">Jeong-won</span><span class="info-val">Moon Ga-young</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Il film originale</div>
+      <div class="info-row"><span class="info-label">Titolo</span><span class="info-val">Us and Them</span></div>
+      <div class="info-row"><span class="info-label">Regia</span><span class="info-val">Rene Liu</span></div>
+      <div class="info-row"><span class="info-label">Anno</span><span class="info-val">2018</span></div>
+      <div class="info-row"><span class="info-label">Paese</span><span class="info-val">Cina</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Tag</div>
+      <div class="tag-list">
+        <span class="tag-pill">film 2025</span>
+        <span class="tag-pill">romance</span>
+        <span class="tag-pill">remake</span>
+        <span class="tag-pill">Koo Kyo-hwan</span>
+        <span class="tag-pill">Moon Ga-young</span>
+        <span class="tag-pill">Kim Do-young</span>
+        <span class="tag-pill">Showbox</span>
+        <span class="tag-pill">amore e tempo</span>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Se ti è piaciuto, guarda anche</div>
+      <div class="info-row"><span class="info-label">Us and Them</span><span class="info-val">2018</span></div>
+      <div class="info-row"><span class="info-label">Better Days</span><span class="info-val">2019</span></div>
+      <div class="info-row"><span class="info-label">Be Melodramatic</span><span class="info-val">2019</span></div>
+    </div>
+  </aside>
+</article>
+
+<script src="https://giscus.app/client.js"
+        data-repo="FotogrammiCoreani/FotogrammiCoreani.github.io"
+        data-repo-id="R_kgDOSbu8Lg"
+        data-category="General"
+        data-category-id="DIC_kwDOSbu8Ls4C9LQj"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="it"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-logo">Fotogrammi Coreani</div>
+  <p class="footer-tagline">Recensioni di kdrama e kfilm. Frame dopo frame, emozione dopo emozione.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Reddit</a>
+    <a href="#">Newsletter</a>
+    <a href="#">Chi sono</a>
+  </div>
+  <p class="footer-copy">© 2026 Fotogrammi Coreani</p>
+</footer>
+
+</body>
+</html>
