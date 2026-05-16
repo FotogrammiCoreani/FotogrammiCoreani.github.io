@@ -425,6 +425,16 @@
     gap: 2px;
   }
 
+  .reviews-grid--compact {
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 3rem;
+}
+
+.reviews-grid--single {
+  grid-template-columns: 1fr;
+  padding-bottom: 3rem;
+}
+
   /* card grande (prima card, a tutta larghezza su 2 colonne) */
   .card {
     background: var(--paper-card);
@@ -659,6 +669,9 @@
     .card--wide { grid-column: span 1; flex-direction: column; }
     .card--wide .card-image-block { width: 100%; aspect-ratio: 16/9; }
     .home-aside { grid-template-columns: 1fr; }
+    .reviews-grid--compact,
+.reviews-grid--single {
+  grid-template-columns: 1fr;
   }
 
   @media (max-width: 600px) {
@@ -757,26 +770,27 @@
 </section>
 
 <!-- ═══ RECENSIONI ═══ -->
+<!-- ═══ SERIE ═══ -->
 <div class="section-divider" id="recensioni">
-  <h2>Recensioni recenti</h2>
+  <h2>Serie in corso</h2>
 </div>
 
 <div class="reviews-grid">
 
   <!-- card grande: ep. 2 -->
   <a href="recensioni/recensioni:il-nostro-meglio/ep2.html" class="card card--wide">
-<div class="card-image-block"
-     style="
-     background-image:url('images/scenes/passaggio-a-livello.jpg');
-     background-size:cover;
-     background-position:center;
-     ">
-</div>
+    <div class="card-image-block"
+         style="
+         background-image:url('images/scenes/passaggio-a-livello.jpg');
+         background-size:cover;
+         background-position:center;
+         ">
+    </div>
     <div class="card-content">
       <span class="card-num">01</span>
       <p class="card-tag">Recensione · Ep. 2</p>
       <h2 class="card-title">Il nostro meglio — Tutto ciò che non diciamo</h2>
-      <p class="card-excerpt">Park Hae-young scrive come se stesse traducendo il silenzio. L'orologio di emotion tracking, il passaggio a livello, il nome urlato da una scogliera — questo episodio è un saggio sul dolore non detto. Due solitudini speculari che si attraggono senza ancora saperlo.</p>
+      <p class="card-excerpt">Park Hae-young scrive come se stesse traducendo il silenzio. L'orologio di emotion tracking, il passaggio a livello, il nome urlato da una scogliera — questo episodio è un saggio sul dolore non detto.</p>
       <div class="card-footer">
         <span class="card-meta">Maggio 2026 · 8 min</span>
         <span class="card-score">9.2</span>
@@ -789,16 +803,44 @@
     <span class="card-num">02</span>
     <p class="card-tag">Recensione · Ep. 1</p>
     <h2 class="card-title">Il nostro meglio — Il peso di vent'anni di attesa</h2>
-    <p class="card-excerpt">Un drama che inizia con un uomo che urla. Non per rabbia — per esistere. Il pilot di Park Hae-young stabilisce il tono con chirurgica precisione.</p>
+    <p class="card-excerpt">Un drama che inizia con un uomo che urla. Non per rabbia — per esistere. Il pilot stabilisce il tono con chirurgica precisione.</p>
     <div class="card-footer">
       <span class="card-meta">Aprile 2026 · 6 min</span>
       <span class="card-score">9.0</span>
     </div>
   </a>
 
-  <!-- card piccola: guida -->
+</div>
+
+<!-- ═══ FILM ═══ -->
+<div class="section-divider">
+  <h2>Film</h2>
+</div>
+
+<div class="reviews-grid reviews-grid--compact">
+
+  <a href="once-we-were-us.html" class="card">
+    <span class="card-num">01</span>
+    <p class="card-tag">Film · 2025</p>
+    <h2 class="card-title">Once We Were Us — Una perdita che non ha nome</h2>
+    <p class="card-excerpt">Un film sul tempo, sulla memoria e su ciò che resta quando due persone smettono di guardare nella stessa direzione.</p>
+    <div class="card-footer">
+      <span class="card-meta">2025 · Film</span>
+      <span class="card-score">8.0</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ═══ GUIDE ═══ -->
+<div class="section-divider">
+  <h2>Guide</h2>
+</div>
+
+<div class="reviews-grid reviews-grid--compact">
+
   <a href="#" class="card">
-    <span class="card-num">03</span>
+    <span class="card-num">01</span>
     <p class="card-tag">Guida · Autrice</p>
     <h2 class="card-title">Park Hae-young: come leggere la sua scrittura</h2>
     <p class="card-excerpt">Da Another Miss Oh a My Mister fino a My Liberation Notes — il metodo di una sceneggiatrice che non scrive storie, scrive stati d'animo.</p>
@@ -808,12 +850,20 @@
     </div>
   </a>
 
-  <!-- card piccola: prossimamente -->
+</div>
+
+<!-- ═══ PROSSIMAMENTE ═══ -->
+<div class="section-divider">
+  <h2>Prossimamente</h2>
+</div>
+
+<div class="reviews-grid reviews-grid--compact">
+
   <a href="#" class="card" style="opacity:0.6; cursor:default; pointer-events:none;">
-    <span class="card-num">04</span>
+    <span class="card-num">01</span>
     <p class="card-tag">In arrivo · Ep. 3</p>
     <h2 class="card-title">Il nostro meglio — Ep. 3</h2>
-    <p class="card-excerpt">La recensione dell'episodio 3 sarà pubblicata dopo la messa in onda del 25 aprile.</p>
+    <p class="card-excerpt">La recensione dell'episodio 3 sarà pubblicata dopo la messa in onda.</p>
     <div class="card-footer">
       <span class="card-meta">Prossimamente</span>
       <span class="card-score card-score--none">—</span>

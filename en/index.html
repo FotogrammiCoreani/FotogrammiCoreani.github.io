@@ -450,6 +450,16 @@
     gap: 2px;
   }
 
+  .reviews-grid--compact {
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 3rem;
+}
+
+.reviews-grid--single {
+  grid-template-columns: 1fr;
+  padding-bottom: 3rem;
+}
+
   /* card grande (prima card, a tutta larghezza su 2 colonne) */
   .card {
     background: var(--paper-card);
@@ -684,6 +694,9 @@
     .card--wide { grid-column: span 1; flex-direction: column; }
     .card--wide .card-image-block { width: 100%; aspect-ratio: 16/9; }
     .home-aside { grid-template-columns: 1fr; }
+    .reviews-grid--compact,
+.reviews-grid--single {
+  grid-template-columns: 1fr;
   }
 
   @media (max-width: 600px) {
@@ -730,9 +743,9 @@
     <div class="hero-text">
       <p class="hero-eyebrow">Quality reviews · kdrama</p>
       <h1 class="hero-title">Korean drama,<br>examined <em>closely</em></h1>
-      <p class="hero-desc">Reviews approfondite di kdrama — con attenzione alla sceneggiatura, alla fotografia, ai dialoghi. Non riassunti di trama: analisi.</p>
+      <p class="hero-desc">In-depth kdrama reviews focused on screenwriting, cinematography, and dialogue. Not plot recaps — analysis.</p>
       <a href="#recensioni" class="hero-cta">
-        Read the reviews
+        Read my reviews
         <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
       </a>
     </div>
@@ -782,26 +795,33 @@
 </section>
 
 <!-- ═══ RECENSIONI ═══ -->
+<!-- ═══ SERIES ═══ -->
 <div class="section-divider" id="recensioni">
-  <h2>Recent reviews</h2>
+  <h2>Ongoing series</h2>
 </div>
 
 <div class="reviews-grid">
 
-  <!-- card grande: ep. 2 -->
+  <!-- featured review -->
   <a href="ep2-il-nostro-meglio.html" class="card card--wide">
-<div class="card-image-block"
-     style="
-     background-image:url('../images/scenes/passaggio-a-livello.jpg');
-     background-size:cover;
-     background-position:center;
-     ">
-</div>
+
+    <div class="card-image-block"
+         style="
+         background-image:url('images/scenes/passaggio-a-livello.jpg');
+         background-size:cover;
+         background-position:center;
+         ">
+    </div>
+
     <div class="card-content">
       <span class="card-num">01</span>
       <p class="card-tag">Review · Ep. 2</p>
-      <h2 class="card-title">We Are All Trying Here — Keep screaming until the world hears you.</h2>
-      <p class="card-excerpt">Park Hae-young writes as if she were translating silence itself. The emotion-tracking watch, the railroad crossing, the name screamed from a cliffside — this episode becomes an essay on unspoken grief. Two mirrored solitudes drawn toward each other before they even understand why.</p>
+      <h2 class="card-title">We Are All Trying Here — Everything We Never Say</h2>
+
+      <p class="card-excerpt">
+        Park Hae-young writes as if she were translating silence itself. The emotion-tracking watch, the railroad crossing, the name screamed from a cliffside — this episode becomes an essay on unspoken grief.
+      </p>
+
       <div class="card-footer">
         <span class="card-meta">May 2026 · 8 min</span>
         <span class="card-score">9.2</span>
@@ -809,36 +829,105 @@
     </div>
   </a>
 
-  <!-- card piccola: ep. 1 -->
+  <!-- ep 1 -->
   <a href="ep1-il-nostro-meglio.html" class="card">
     <span class="card-num">02</span>
     <p class="card-tag">Review · Ep. 1</p>
-    <h2 class="card-title">We Are All Trying Here — The weight of 20 years of waiting</h2>
-    <p class="card-excerpt">A drama that begins with a man screaming. Not out of anger — but to exist. Park Hae-young's pilot establishes its emotional register with surgical precision.</p>
+
+    <h2 class="card-title">
+      We Are All Trying Here — The Weight of Twenty Years of Waiting
+    </h2>
+
+    <p class="card-excerpt">
+      A drama that begins with a man screaming. Not out of anger — but to exist. The pilot establishes its emotional register with surgical precision.
+    </p>
+
     <div class="card-footer">
       <span class="card-meta">April 2026 · 6 min</span>
       <span class="card-score">9.0</span>
     </div>
   </a>
 
-  <!-- card piccola: guida -->
-  <a href="#" class="card">
-    <span class="card-num">03</span>
-    <p class="card-tag">Guide · Writer</p>
-    <h2 class="card-title">Park Hae-young: how to read her writing</h2>
-    <p class="card-excerpt">From Another Miss Oh to My Mister and My Liberation Notes — the method of a screenwriter who doesn't write stories, but emotional states.</p>
+</div>
+
+<!-- ═══ FILMS ═══ -->
+<div class="section-divider">
+  <h2>Films</h2>
+</div>
+
+<div class="reviews-grid reviews-grid--compact">
+
+  <a href="once-we-were-us.html" class="card">
+    <span class="card-num">01</span>
+
+    <p class="card-tag">Film · 2025</p>
+
+    <h2 class="card-title">
+      Once We Were Us — A Loss Without a Name
+    </h2>
+
+    <p class="card-excerpt">
+      A film about time, memory, and what remains when two people stop looking in the same direction.
+    </p>
+
     <div class="card-footer">
-      <span class="card-meta">Aprile 2026 · 12 min</span>
+      <span class="card-meta">2025 · Film</span>
+      <span class="card-score">8.0</span>
+    </div>
+  </a>
+
+</div>
+
+<!-- ═══ GUIDES ═══ -->
+<div class="section-divider">
+  <h2>Guides</h2>
+</div>
+
+<div class="reviews-grid reviews-grid--compact">
+
+  <a href="#" class="card">
+    <span class="card-num">01</span>
+
+    <p class="card-tag">Guide · Writer</p>
+
+    <h2 class="card-title">
+      Park Hae-young: how to read her writing
+    </h2>
+
+    <p class="card-excerpt">
+      From Another Miss Oh to My Mister and My Liberation Notes — the method of a screenwriter who doesn't write stories, but emotional states.
+    </p>
+
+    <div class="card-footer">
+      <span class="card-meta">April 2026 · 12 min</span>
       <span class="card-score card-score--none">— essay</span>
     </div>
   </a>
 
-  <!-- card piccola: prossimamente -->
-  <a href="#" class="card" style="opacity:0.6; cursor:default; pointer-events:none;">
-    <span class="card-num">04</span>
+</div>
+
+<!-- ═══ COMING SOON ═══ -->
+<div class="section-divider">
+  <h2>Coming soon</h2>
+</div>
+
+<div class="reviews-grid reviews-grid--compact">
+
+  <a href="#" class="card"
+     style="opacity:0.6; cursor:default; pointer-events:none;">
+
+    <span class="card-num">01</span>
+
     <p class="card-tag">Coming soon · Ep. 3</p>
-    <h2 class="card-title">We Are All Trying Here — Ep. 3</h2>
-    <p class="card-excerpt">The review for episode 3 will be published after the April 25 broadcast.</p>
+
+    <h2 class="card-title">
+      We Are All Trying Here — Ep. 3
+    </h2>
+
+    <p class="card-excerpt">
+      The review for episode 3 will be published after the next broadcast.
+    </p>
+
     <div class="card-footer">
       <span class="card-meta">Coming soon</span>
       <span class="card-score card-score--none">—</span>
