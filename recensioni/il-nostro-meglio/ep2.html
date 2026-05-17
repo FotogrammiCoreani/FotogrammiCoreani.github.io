@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il nostro meglio — Ep. 2: Tutto ciò che non diciamo · Fotogrammi Coreani</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --ink-soft: #4a3f35;
+    --ink-muted: #9a8e84;
+    --paper: #f8f4ef;
+    --paper-warm: #f0e9df;
+    --paper-card: #fdfaf7;
+    --accent: #c0392b;
+    --accent-soft: #e8c5c0;
+    --accent-faint: #faf0ee;
+    --gold: #b8922a;
+    --gold-faint: #f7f0e0;
+    --border: rgba(26,20,16,0.12);
+    --border-soft: rgba(26,20,16,0.07);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: var(--paper);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .site-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .site-logo span { color: var(--accent); }
+
+  .site-nav { display: flex; gap: 2rem; list-style: none; }
+
+  .site-nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .site-nav a:hover { color: var(--accent); }
+
+  /* ── BREADCRUMB ── */
+.breadcrumb {
+  max-width: 1100px;
+  margin: 0 auto 2.5rem;
+  padding: 1.5rem 2rem 0;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .breadcrumb a { color: var(--ink-muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .breadcrumb span { opacity: 0.4; }
+
+  /* ── EP NAV ── */
+  .ep-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding: 2rem 0 0;
+    margin: 3rem 0 0;
+  }
+
+  .ep-nav-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+  }
+
+  .ep-nav-item.prev { text-align: left; }
+  .ep-nav-item.next { text-align: right; }
+
+  .ep-nav-item:hover .ep-nav-title { color: var(--accent); }
+
+  .ep-nav-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-muted);
+    font-weight: 500;
+  }
+
+  .ep-nav-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--ink);
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .ep-nav-title svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── SCENE CARDS GRID ── */
+  .scene-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 2rem 0 2.5rem;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .scene-card {
+    background: var(--paper-card);
+    padding: 1.4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scene-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .scene-card:hover::before { opacity: 1; }
+
+  .scene-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--paper-warm);
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .scene-card-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .scene-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .scene-card-desc {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+
+  
+
+  .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin: 2.5rem 0;
+    border: 1px solid var(--border-soft);
+    background: var(--border-soft);
+  }
+
+  .cast-cell {
+    background: var(--paper-card);
+    padding: 1.25rem;
+  }
+
+  .cast-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cast-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--border-soft);
+    background: var(--paper-warm);
+    filter: sepia(0.08) contrast(0.96);
+  }
+
+  .cast-photo-placeholder {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid var(--border-soft);
+    background: linear-gradient(135deg, var(--paper-warm), var(--accent-faint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--accent);
+  }
+
+  .cast-actor {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .cast-character {
+    font-size: 12px;
+    color: var(--ink-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .cast-note {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  
+
+
+  .cast-section-label {
+    display: block;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    font-weight: 500;
+    margin: 0 0 0.9rem;
+    clear: both;
+  }
+
+  .cast-grid-compact {
+    width: 100%;
+    max-width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0 0 2rem;
+    clear: both;
+  }
+
+  .cast-grid-compact .cast-cell {
+    min-width: 0;
+    padding: 1rem;
+  }
+
+  .cast-grid-compact .cast-header {
+    gap: 0.7rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .cast-grid-compact .cast-photo,
+  .cast-grid-compact .cast-photo-placeholder {
+    width: 42px;
+    height: 42px;
+  }
+
+  .cast-grid-compact .cast-actor {
+    font-size: 13px;
+  }
+
+  .cast-grid-compact .cast-character,
+  .cast-grid-compact .cast-note {
+    font-size: 11.5px;
+  }
+
+  @media (max-width: 900px) {
+    .cast-grid-compact { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .cast-grid-compact { grid-template-columns: 1fr; }
+  }
+
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    max-width: 1100px;
+    margin: 3rem auto 2.5rem;
+    padding: 3rem 2rem 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .section-divider h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── REVIEW ── */
+  .review-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 4rem;
+  }
+
+  .review-header { margin-bottom: 2.5rem; }
+
+  .review-series {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-series::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .review-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .review-byline {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .byline-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .byline-info { font-size: 13px; }
+  .byline-name { font-weight: 500; color: var(--ink); }
+  .byline-date { color: var(--ink-muted); }
+
+  .score-bar {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--accent);
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .score-item { text-align: center; }
+  .score-item-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 2px; }
+  .score-item-val { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--ink); }
+
+  .review-body { font-size: 16px; line-height: 1.85; color: var(--ink-soft); font-weight: 300; }
+  .review-body p { margin-bottom: 1.5rem; }
+
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin: 2.5rem 0 1.25rem;
+    gap: 1rem;
+  }
+
+  .section-heading h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .section-score-wrap {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .section-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .section-score-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  .review-body blockquote {
+    border-left: 2px solid var(--accent);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: var(--accent-faint);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .review-body blockquote cite {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .review-image {
+    margin: 2.5rem 0;
+  }
+
+  .review-image img {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    border: 1px solid var(--border-soft);
+  }
+
+  .review-image figcaption {
+    margin-top: 0.75rem;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    font-style: italic;
+  }
+
+  .symbol-box {
+    background: var(--gold-faint);
+    border: 1px solid rgba(184,146,42,0.22);
+    border-left: 3px solid var(--gold);
+    padding: 1.35rem 1.5rem;
+    margin: 2.25rem 0;
+    font-size: 15px;
+    line-height: 1.78;
+    color: var(--ink-soft);
+    position: relative;
+  }
+
+  .symbol-box strong {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .symbol-box em { color: var(--ink); }
+
+  /* ── PRO / CONTRO ── */
+  .pros-cons-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin: 3rem 0 2.5rem;
+    background: var(--border-soft);
+    border: 1px solid var(--border-soft);
+  }
+
+  .pros-cons-col {
+    background: var(--paper-card);
+    padding: 1.5rem;
+  }
+
+  .pros-cons-col.pro { border-top: 3px solid #6f9f72; }
+  .pros-cons-col.con { border-top: 3px solid #b86b5f; }
+
+  .pros-cons-title {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .pros-cons-col.pro .pros-cons-title { color: #5f8f62; }
+  .pros-cons-col.con .pros-cons-title { color: #a85f55; }
+
+  .pros-cons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pros-cons-list li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 0.8rem;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .pros-cons-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+  }
+
+  /* ── SCENE IMAGE ── */
+  .scene-image {
+    max-width: 720px;
+    margin: 2.5rem auto;
+  }
+
+  .scene-image img {
+    width: 100%;
+    max-height: 430px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid var(--border-soft);
+  }
+
+  .scene-caption {
+    margin-top: 0.7rem;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar { padding-top: 0.5rem; }
+
+  .sidebar-block {
+    border: 1px solid var(--border);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: var(--paper-card);
+  }
+
+  .sidebar-title {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+
+  .info-row:last-child { border-bottom: none; }
+  .info-label { color: var(--ink-muted); }
+  .info-val { font-weight: 500; color: var(--ink); text-align: right; }
+
+  .final-verdict {
+    background: var(--ink-soft);
+    color: var(--paper);
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .verdict-score {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .verdict-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 12px;
+  }
+
+  .verdict-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .tag-pill {
+    font-size: 11px;
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .tag-pill:hover { background: var(--ink); color: var(--paper); }
+
+  /* ── LE MIE IMPRESSIONI ── */
+  .impressioni-section {
+    border-top: 2px solid var(--accent);
+    padding-top: 2rem;
+    margin-top: 3rem;
+  }
+
+  .impressioni-label {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.75rem;
+  }
+
+  .impressioni-section p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--ink-soft);
+    font-weight: 300;
+    margin-bottom: 1.4rem;
+    font-style: italic;
+  }
+
+  .impressioni-section p em {
+    font-style: normal;
+    color: var(--ink);
+  }
+
+  .impressioni-firma {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--ink);
+    color: rgba(248,244,239,0.6);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-tagline { font-size: 13px; margin-bottom: 2rem; font-style: italic; font-family: 'Playfair Display', serif; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+  .footer-links a { font-size: 12px; color: rgba(248,244,239,0.5); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+  .footer-links a:hover { color: var(--paper); }
+  .footer-copy { font-size: 12px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .cast-grid { grid-template-columns: 1fr 1fr; }
+    .review-section { grid-template-columns: 1fr; }
+    .sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  }
+
+  @media (max-width: 600px) {
+    .cast-grid { grid-template-columns: 1fr; }
+    .site-nav { display: none; }
+    .sidebar { grid-template-columns: 1fr; }
+    .pros-cons-box { grid-template-columns: 1fr; }
+    .scene-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="../../index.html" class="site-logo">Fotogrammi<span>.</span>Coreani</a>
+    <nav>
+      <ul class="site-nav">
+        <li><a href="../../recensioni.html">Recensioni</a></li>
+        <li><a href="../../serie.html">Serie</a></li>
+        <li><a href="../../guide.html">Guide</a></li>
+        <li><a href="../../chi-sono.html">Chi sono</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<div class="breadcrumb">
+  <a href="../../index.html">Home</a>
+  <span>/</span>
+  <a href="#">Recensioni</a>
+  <span>/</span>
+  <a href="ep1-il-nostro-meglio.html">Il nostro meglio</a>
+  <span>/</span>
+  Ep. 2
+</div>
+
+
+
+<!-- ═══ RECENSIONE EP. 2 ═══ -->
+<article class="review-section">
+  <div>
+    <header class="review-header">
+      <p class="review-series">Il nostro meglio · Episodio 2 · JTBC / Netflix 2026</p>
+      <h1 class="review-title">Urla finché il mondo non ti sente</h1>
+      <p class="review-subtitle">Dong-man riscopre la bellezza di essere "inutilmente umano" e lo urla al mondo. Eun-a lo sente e ritrova la forza di lottare.</p>
+
+      <div class="review-byline">
+        <div class="byline-avatar">F</div>
+        <div class="byline-info">
+          <div class="byline-name">Fotogrammi Coreani</div>
+          <div class="byline-date">25 aprile 2026 · 8 minuti di lettura</div>
+        </div>
+      </div>
+
+      <div class="score-bar">
+        <div class="score-item"><div class="score-item-label">Sceneggiatura</div><div class="score-item-val">7.5</div></div>
+        <div class="score-item"><div class="score-item-label">Recitazione</div><div class="score-item-val">8.0</div></div>
+        <div class="score-item"><div class="score-item-label">Regia</div><div class="score-item-val">7.0</div></div>
+        <div class="score-item"><div class="score-item-label">Fotografia</div><div class="score-item-val">7.5</div></div>
+      </div>
+    </header>
+
+    <div class="review-body">
+
+      
+
+
+
+      <!-- CAST PRINCIPALE -->
+      <p class="cast-section-label">Il cast principale</p>
+
+<div class="cast-grid cast-grid-compact">
+      <div class="cast-cell">
+        <div class="cast-header">
+          <img class="cast-photo" src="../../images/cast/koo-kyo-hwan.jpg" alt="Koo Kyo-hwan">
+          <div>
+            <div class="cast-actor">Koo Kyo-hwan</div>
+            <div class="cast-character">Hwang Dong-man</div>
+          </div>
+        </div>
+        <div class="cast-note">L'unico degli "Otto" che non ha ancora debuttato come regista. Visto in <em>Extraordinary Attorney Woo</em> (2022) e <em>Once We Were Us</em> (2025). </div>
+      </div>
+      <div class="cast-cell">
+        <div class="cast-header">
+          <img class="cast-photo" src="../../images/cast/go-youn-jung.jpg" alt="Go Youn-jung">
+          <div>
+            <div class="cast-actor">Go Youn-jung</div>
+            <div class="cast-character">Byeon Eun-a</div>
+          </div>
+        </div>
+        <div class="cast-note">Produttrice soprannominata "L'Ascia". Torna con la sua seconda serie del 2026 dopo <em>Can This Love Be Translated?</em> — questa volta senza trucco e senza armatura.</div>
+      </div>
+      <div class="cast-cell">
+        <div class="cast-header">
+          <img class="cast-photo" src="../../images/cast/oh-jung-se.jpg" alt="Oh Jung-se">
+          <div>
+            <div class="cast-actor">Oh Jung-se</div>
+            <div class="cast-character">Park Gyeong-se</div>
+          </div>
+        </div>
+        <div class="cast-note">Regista di successo tormentato da un'ossessione per Dong-man che non riesce a nominare. Già in <em>It's Okay to Not Be Okay</em>.</div>
+      </div>
+      <div class="cast-cell">
+        <div class="cast-header">
+          <img class="cast-photo" src="../../images/cast/kang-mal-geum.jpg" alt="Kang Mal-geum">
+          <div>
+            <div class="cast-actor">Kang Mal-geum</div>
+            <div class="cast-character">Ko Hye-jin</div>
+          </div>
+        </div>
+        <div class="cast-note">CEO di Gobak Film, moglie di Gyeong-se. La più capace di contenere il caos altrui — almeno in apparenza.</div>
+      </div>
+      <div class="cast-cell">
+        <div class="cast-header">
+          <img class="cast-photo" src="../../images/cast/park-hae-joon.jpg" alt="Park Hae-joon">
+          <div>
+            <div class="cast-actor">Park Hae-joon</div>
+            <div class="cast-character">Hwang Jin-man</div>
+          </div>
+        </div>
+        <div class="cast-note">Il fratello. Terzo attore del cast ad aver recitato in <em>When Life Gives You Tangerines</em>.</div>
+      </div>
+      <div class="cast-cell">
+        <div class="cast-header">
+          <img class="cast-photo" src="../../images/cast/bae-jong-ok.jpg" alt="Bae Jong-ok">
+          <div>
+            <div class="cast-actor">Bae Jong-ok</div>
+            <div class="cast-character">O Jeong-hui</div>
+          </div>
+        </div>
+        <div class="cast-note">Veterana del drama coreano. Una presenza che stabilizza l'intero ensemble.</div>
+      </div>
+    </div>
+
+
+<p>Il secondo episodio di <em>We Are All Trying Here</em> continua a parlare di debolezza, ma sposta improvvisamente il bersaglio. Nel pilot la fragilità era tutta addosso ai protagonisti: Dong-man la trasformava in rumore, battute fuori posto e disperazione esibita; Eun-a la interiorizzava fino quasi a consumarsi. Qui invece il drama guarda gli altri. Quelli che ce l'hanno fatta.</p>
+
+      <p>Registi affermati, adulti funzionali, persone che hanno imparato a parlare il linguaggio del successo. Eppure più cercano di prendere le distanze da Dong-man, più rivelano qualcosa di miserabile. Lo osservano dall’alto, si compiacciono del suo fallimento, quasi avessero bisogno che lui resti indietro per sentirsi davvero arrivati. È una debolezza diversa: non quella di chi crolla apertamente, ma quella di chi usa il fallimento altrui per non guardare il proprio vuoto morale.</p>
+        
+            <blockquote>
+        "Che cos’è un incompetente?
+Come uno chef che non sa cucinare.
+Un insegnante che non sa insegnare. Devo continuare?"
+"O come un essere umano senza umanità.”
+        <cite>— Byeon Eun-a, episodio 2</cite>
+      </blockquote>  
+      
+      <p>Park Hae-young costruisce l'episodio attorno a una domanda semplice e vertiginosa: cosa succede quando qualcuno smette di guardarti come un fallito e ti riconosce per ciò che sei?</p>
+
+      <!-- SCENEGGIATURA -->
+      <div class="section-heading">
+        <h3>Sceneggiatura: la grammatica del non detto</h3>
+        <div class="section-score-wrap">
+          <div class="section-score">8.5</div>
+          <div class="section-score-label">Voto sezione</div>
+        </div>
+      </div>
+
+      <!-- SCENE CHIAVE -->
+      <div class="scene-cards">
+
+        <div class="scene-card">
+          <span class="scene-card-num">01</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">Dong-man viene bandito dall'Agit</h4>
+          <p class="scene-card-desc">Eun-a manda a Dong-man una lista di osservazioni sul copione alle due di notte. Non è critica: è dialogo. Dong-man risponde subito. Non dormiva nemmeno lui.</p>
+        </div>
+
+        <div class="scene-card">
+          <span class="scene-card-num">02</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">Il pranzo con Gyeong-se</h4>
+          <p class="scene-card-desc">Gyeong-se invita Dong-man a pranzo con la premessa di un gesto generoso. La conversazione degenera in meno di cinque minuti. Nessuno dei due dice quello che pensa davvero.</p>
+        </div>
+
+        <div class="scene-card">
+          <span class="scene-card-num">03</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">La scala antincendio</h4>
+          <p class="scene-card-desc">Dong-man ed Eun-a si ritrovano a parlare nell'unico posto in cui nessuno li cerca: la scala di servizio del palazzo di Choi Film. Forse perché è l'unico posto in cui entrambi si sentono fuori posto allo stesso modo.</p>
+        </div>
+
+        <div class="scene-card">
+          <span class="scene-card-num">04</span>
+          <p class="scene-card-label">Scena chiave</p>
+          <h4 class="scene-card-title">Hye-jin e lo specchio</h4>
+          <p class="scene-card-desc">Una breve scena — quasi marginale — in cui Hye-jin si guarda allo specchio prima di una cena con il marito. Non regola nulla. Si limita a guardarsi. La serie non commenta. Non ha bisogno di farlo.</p>
+        </div>
+
+      </div>
+
+      <p>Park Hae-young ha sempre scritto dialoghi che sembrano sbagliati nel momento in cui vengono pronunciati, e giusti il giorno dopo. Il secondo episodio ne offre la conferma più precisa finora. La conversazione tra Gyeong-se e Dong-man durante il pranzo è un esempio quasi perfetto di questa tecnica: i due parlano di cinema, di opportunità, di un possibile progetto. Ma quello che si dicono davvero — gelosia, rancore, la necessità di essere riconosciuti — non viene mai nominato. Rimane nello spazio tra le frasi, denso come fumo.</p>
+
+            <figure class="review-image">
+        <img src="../../images/scenes/hill-scene.jpg" alt="Dong-man ed Eun-a sulla scala antincendio">
+        <figcaption>
+          Un Dong-man ferito nel fisico e nell'orgoglio urla il proprio nome da una collina all'alba.
+        </figcaption>
+      </figure>
+
+      <p>C'è un momento in cui Gyeong-se offre a Dong-man di co-scrivere la sceneggiatura del suo prossimo film. Lo dice con tono leggero, come se stesse facendo un favore. Dong-man risponde con altrettanta leggerezza, come se non gli importasse. Poi si alza per andare al bagno e rimane immobile per trenta secondi davanti alla porta, con le spalle alla telecamera. Non sappiamo esattamente cosa stia provando — umiliazione, speranza, diffidenza, tutte e tre insieme — e Park non ce lo spiega. Lascia che quella schiena dica tutto.</p>
+
+      <blockquote>
+        "E voi siete così deboli da farvi rovinare la vita da Dong-man?"
+        <cite>— Hwang Jin-man, episodio 2</cite>
+      </blockquote>
+
+      <p>La scena della scala antincendio è quella che l'episodio sembrava stare costruendo sin dall'inizio, senza che ce ne accorgessimo. Eun-a ha trascorso il giorno a correggere le bozze di altri, ad ascoltare il capo, a contenere tutto. Dong-man ha trascorso il giorno a convincersi che l'offerta di Gyeong-se non fosse una carità. Li ritroviamo nella scala quasi per caso — o almeno così sembra. Parlano di <em>Weather Maker</em> in modo diverso rispetto all'incontro in ufficio: senza la presenza di Choi a fare da filtro, Eun-a dice quello che pensa davvero. E quello che pensa davvero è che la sceneggiatura ha qualcosa di raro — qualcosa che lei non riesce ancora a nominare con precisione, ma che riconosce.</p>
+
+      <figure class="review-image">
+        <img src="../../images/scenes/scena-agit.jpg" alt="Dong-man ed Eun-a sulla scala antincendio">
+        <figcaption>
+          Un gruppo di registi affermati ossessionati dall'unico di loro che non ce l'ha fatta.
+        </figcaption>
+      </figure>
+
+      <p>Quello che colpisce nella scrittura di Park Hae-young è che non assegna mai ai personaggi la comprensione di ciò che stanno vivendo. Eun-a non sa ancora perché le importi così tanto di quella sceneggiatura. Dong-man non sa ancora perché la presenza di lei lo renda meno rumoroso. La serie lo sa, e aspetta che anche loro arrivino a capirlo — con tutta la lentezza di chi ha imparato a diffidare delle proprie emozioni.</p>
+
+      <div class="symbol-box">
+        <strong>Il dettaglio narrativo · La lista di osservazioni</strong>
+        Eun-a manda le sue note sul copione a Dong-man alle due di notte. Non è un gesto professionale — o almeno non soltanto. È il gesto di qualcuno che non riusciva a smettere di pensarci. Park Hae-young inserisce qui un dettaglio fondamentale: la lista non contiene solo critiche, ma domande. <em>Perché il protagonista non chiede aiuto? Cosa lo blocca?</em> Sono domande che Eun-a potrebbe rivolgere a se stessa, parola per parola. La scrittura di Dong-man diventa uno specchio involontario. E lei sembra accorgersene mentre lo legge, ma non ancora mentre scrive.
+      </div>
+
+      <p>Il sottotesto tra Gyeong-se e Hye-jin si fa più leggibile nel corso dell'episodio. Non attraverso grandi scene di confronto — Park Hae-young non lavora così — ma attraverso l'accumulo di piccoli gesti sbagliati. Gyeong-se arriva a cena con trenta minuti di ritardo e non lo menziona. Hye-jin non chiede spiegazioni. Kang Mal-geum lavora su quella sequenza con una precisione chirurgica: Hye-jin mangia, sorride, risponde alle domande. Ma c'è qualcosa nella postura, nella velocità con cui riempie i bicchieri, che suggerisce una persona che da tempo ha smesso di aspettarsi le cose giuste.</p>
+
+      <!-- RECITAZIONE -->
+      <div class="section-heading">
+        <h3>Recitazione: l'arte di non spiegarsi</h3>
+        <div class="section-score-wrap">
+          <div class="section-score">9</div>
+          <div class="section-score-label">Voto sezione</div>
+        </div>
+      </div>
+
+      <p>Koo Kyo-hwan fa qualcosa nel secondo episodio che non avevo previsto: rallenta. Dong-man nel pilot era tutto movimento, volume, impatto fisico. Qui ci sono momenti — pochi, preziosi — in cui il personaggio si ferma davvero. Succede nella scala, quando Eun-a parla della sceneggiatura. Succede nel bagno del ristorante. Sono fessure brevissime, e Koo Kyo-hwan le abita con una cura che fa capire quanto lavoro ci sia dietro l'apparente disordine del personaggio. Dong-man non è caotico per natura: è caotico perché non sa stare fermo senza che il dolore lo raggiunga. Quando si ferma davvero, il dolore arriva. E Koo Kyo-hwan ci mostra esattamente quella frazione di secondo in cui il personaggio sceglie se lasciarlo entrare o ricominciare a correre.</p>
+
+      <div class="scene-image">
+        <img src="../../images/scenes/ep2-dongman-bagno.jpg" alt="Dong-man nel bagno del ristorante">
+        <p class="scene-caption">Trenta secondi con le spalle alla telecamera. Park Hae-young non ha bisogno di spiegare altro.</p>
+      </div>
+
+      <p>Go Youn-jung continua a costruire Eun-a per detrazione. Ogni scena la vediamo eliminare qualcosa: un'emozione, una risposta, un gesto che stava per partire e viene trattenuto. Ma nel secondo episodio c'è una novità: la vediamo sorridere. Una volta sola, brevemente, mentre legge le risposte di Dong-man alla sua lista di osservazioni. Il sorriso dura forse due secondi. Go Youn-jung non lo enfatizza — lo lascia accadere, quasi di nascosto, come se anche Eun-a non volesse esserne sorpresa. È forse il momento emotivo più forte dell'episodio, proprio perché è il più piccolo.</p>
+
+      <blockquote>
+        "Un giorno qualcuno ti guarderà e penserà che sei una fortuna. Non so quando. Ma accadrà."
+        <cite>— Hwang Jin-man a Dong-man, episodio 2</cite>
+      </blockquote>
+
+      <p>Park Hae-joon nei panni di Jin-man occupa finalmente una scena tutta sua: il fratello minore che porta Dong-man a bere e gli dice, con la semplicità propria di chi ha smesso di essere delicato, quello che nessun altro dei suoi amici riesce a dirgli. Non lo consola — il tono non è quello. È piuttosto il discorso di qualcuno che ha osservato da vicino il dolore altrui per vent'anni e ha capito che la compassione, a volte, non ha bisogno di circonlocuzioni. Park Hae-joon calibra ogni parola con un'economia ammirevole. Quando Jin-man finisce di parlare, Dong-man non risponde. Ordina un altro bicchiere. È la risposta più onesta che il personaggio riesca a dare.</p>
+
+      <div class="symbol-box">
+        <strong>Il momento chiave della recitazione · Il sorriso di Eun-a</strong>
+        Due secondi. Go Youn-jung non costruisce il momento, non lo segnala con la musica, non lo guarda in camera. Eun-a sorride allo schermo del telefono come sorridono le persone quando sono sole e qualcosa le sorprende piacevolmente, prima ancora di decidere se permetterselo. È la prima crepa nella superficie. Ed è talmente piccola che potresti perderla se distrai lo sguardo un istante. Ma cambia la percezione dell'intero personaggio.
+      </div>
+
+      <!-- REGIA E FOTOGRAFIA -->
+      <div class="section-heading">
+        <h3>Regia e Fotografia</h3>
+        <div class="section-score-wrap">
+          <div class="section-score">8</div>
+          <div class="section-score-label">Voto sezione</div>
+        </div>
+      </div>
+
+      <p>Cha Young-hoon trova il suo ritmo nel secondo episodio. Le incertezze che si avvertivano nel pilot — qualche transizione sbrigativa, qualche scena che faticava a trovare il proprio punto di fine — qui si fanno più rare. La sensazione è che il regista si stia fidando sempre di più del materiale, e in particolare del silenzio. La sequenza del pranzo tra Gyeong-se e Dong-man dura quasi dieci minuti senza musica. La camera rimane ferma, leggermente decentrata rispetto ai due personaggi, come un terzo commensale che non vuole farsi notare. L'effetto è quello di un imbarazzo condiviso con lo spettatore.</p>
+
+      <p>La scelta cromatica si fa più marcata rispetto al pilot. Gli spazi di Choi Film — uffici luminosi, superfici bianche, vetrate — vengono contrapposti con sistematicità agli spazi di Dong-man ed Eun-a: corridoi stretti, luce calda e radente, angoli dove ci si può nascondere. Non è una lettura simbolica forzata; è semplicemente la logica visiva che la serie sta costruendo, episodio dopo episodio, tra chi appartiene al sistema e chi lo abita di passaggio.</p>
+
+      <figure class="review-image">
+        <img src="../../images/scenes/ep2-choi-office.jpg" alt="Gli uffici di Choi Film">
+        <figcaption>
+          Choi Film: tutto bianco, tutto vetro, tutto visibile. Un posto in cui nascondersi è impossibile — e forse è proprio questo il punto.
+        </figcaption>
+      </figure>
+
+      <p>L'unica scena in cui la regia perde un po' di sicurezza è quella che chiude l'episodio: Dong-man cammina verso casa di notte e si ferma sotto la finestra illuminata di un palazzo che non identifichiamo subito. È un'immagine bella, ma forse troppo consapevole della propria bellezza. Cha Young-hoon indugia qualche secondo di troppo, come se non si fidasse fino in fondo della semplicità del gesto. È un'imperfezione minore — e in fondo anche questa rivela qualcosa: la serie sta ancora crescendo dentro se stessa, e lo fa visibilmente.</p>
+
+      <!-- LE MIE IMPRESSIONI -->
+      <div class="impressioni-section">
+
+        <div class="impressioni-label">
+          <span>✦</span> Le mie impressioni
+        </div>
+
+        <p>Ho finito il secondo episodio e sono rimasto fermo per qualche minuto a non fare niente. Non è una cosa che mi capita spesso. Di solito, quando una serie mi coinvolge, ho voglia di andare avanti subito — premere play, consumare. Qui no. Avevo bisogno di stare un po' dentro quello che avevo visto prima di lasciarlo andare.</p>
+
+        <p>Quello che mi ha colpito di più, paradossalmente, è la scena più piccola. Eun-a che sorride al telefono. Non perché sia romantica — non lo è ancora, o non del tutto — ma perché è la prima volta che la vedo fare qualcosa senza che sia controllato. Quel sorriso non era pianificato. Le è scappato. E Go Youn-jung lo recita esattamente così: come qualcosa che non aveva previsto di provare.</p>
+
+        <p>C'è una domanda che mi porto dietro dall'episodio, e che la serie sembra stare costruendo con molta pazienza: <em>quanto tempo ci vuole a imparare a ricevere qualcosa?</em> Dong-man è talmente abituato a essere il problema di tutti che non sa ancora cosa fare quando qualcuno lo tratta come una risorsa. Eun-a è talmente abituata a contenere che non sa ancora riconoscere un'emozione prima che il corpo gliela segnali con un'epistassi o un battito accelerato. Sono due persone che hanno sviluppato meccanismi di sopravvivenza opposti per proteggersi dalla stessa cosa: la delusione di aspettarsi qualcosa da qualcuno.</p>
+
+        <p>Il pranzo con Gyeong-se mi ha fatto stare male in modo molto preciso. Non per la crudeltà — Gyeong-se non è crudele, o almeno non consapevolmente. Ma perché conosco quel tipo di generosità: quella che si offre sapendo già che verrà rifiutata, così da potersi dire di aver provato. E conosco anche il modo in cui Dong-man resta immobile davanti alla porta del bagno: è il modo in cui si sta immobili quando non si sa ancora se essere grati o furiosi, e la risposta giusta sembra impossibile da trovare.</p>
+
+        <p>Siamo al secondo episodio su dodici. Park Hae-young ha già costruito qualcosa che fa male in modo preciso e pulito. Questo, per me, è il segno che la serie sa esattamente dove sta andando.</p>
+
+        <div class="impressioni-firma">
+          — Leonardo
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRO / CONTRO -->
+    <div class="pros-cons-box">
+      <div class="pros-cons-col pro">
+        <div class="pros-cons-title">Cosa funziona</div>
+        <ul class="pros-cons-list">
+          <li>Il sorriso di Eun-a: due secondi che cambiano tutto.</li>
+          <li>La scena del bagno: Koo Kyo-hwan con le spalle alla telecamera vale più di qualsiasi monologo.</li>
+          <li>La gestione del silenzio, molto più sicura rispetto al pilot.</li>
+          <li>Jin-man: finalmente una scena che gli appartiene, e la usa benissimo.</li>
+        </ul>
+      </div>
+
+      <div class="pros-cons-col con">
+        <div class="pros-cons-title">Cosa convince meno</div>
+        <ul class="pros-cons-list">
+          <li>Il finale visivamente un po' compiaciuto — quell'indugio sotto la finestra illuminata.</li>
+          <li>Alcuni personaggi dell'ensemble (gli altri del gruppo degli "Otto") restano ancora abbozzati.</li>
+          <li>Il ritmo del secondo atto centrale è leggermente più lasco rispetto all'apertura.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EP NAV -->
+    <nav class="ep-nav">
+      <a href="ep1-il-nostro-meglio.html" class="ep-nav-item prev">
+        <span class="ep-nav-label">Episodio precedente</span>
+        <span class="ep-nav-title">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M13 7H1M7 13L1 7l6-6"/>
+          </svg>
+          Il peso di vent'anni di attesa
+        </span>
+      </a>
+      <a href="ep3-il-nostro-meglio.html" class="ep-nav-item next">
+        <span class="ep-nav-label">Episodio successivo</span>
+        <span class="ep-nav-title">
+          [Ep. 3 — disponibile venerdì]
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M1 7h12M7 1l6 6-6 6"/>
+          </svg>
+        </span>
+      </a>
+    </nav>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="final-verdict">
+      <div class="verdict-score">8.5</div>
+      <div class="verdict-label">Voto episodio</div>
+      <p class="verdict-text">"Più controllato del pilot, più maturo. La serie comincia a fidarsi del proprio silenzio."</p>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Scheda tecnica</div>
+      <div class="info-row"><span class="info-label">Serie</span><span class="info-val">We Are All Trying Here</span></div>
+      <div class="info-row"><span class="info-label">Episodio</span><span class="info-val">2 di 12</span></div>
+      <div class="info-row"><span class="info-label">Rete</span><span class="info-val">JTBC / Netflix</span></div>
+      <div class="info-row"><span class="info-label">Sceneggiatura</span><span class="info-val">Park Hae-young</span></div>
+      <div class="info-row"><span class="info-label">Regia</span><span class="info-val">Cha Young-hoon</span></div>
+      <div class="info-row"><span class="info-label">Durata</span><span class="info-val">72 min</span></div>
+      <div class="info-row"><span class="info-label">Messa in onda</span><span class="info-val">25 aprile 2026</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">I personaggi in primo piano</div>
+      <div class="info-row"><span class="info-label">Dong-man</span><span class="info-val">Koo Kyo-hwan</span></div>
+      <div class="info-row"><span class="info-label">Eun-a</span><span class="info-val">Go Youn-jung</span></div>
+      <div class="info-row"><span class="info-label">Gyeong-se</span><span class="info-val">Oh Jung-se</span></div>
+      <div class="info-row"><span class="info-label">Jin-man</span><span class="info-val">Park Hae-joon</span></div>
+      <div class="info-row"><span class="info-label">Hye-jin</span><span class="info-val">Kang Mal-geum</span></div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Temi dell'episodio</div>
+      <div class="tag-list">
+        <span class="tag-pill">riconoscimento</span>
+        <span class="tag-pill">gelosia</span>
+        <span class="tag-pill">silenzio</span>
+        <span class="tag-pill">generosità tossica</span>
+        <span class="tag-pill">Weather Maker</span>
+        <span class="tag-pill">specchio</span>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Tag</div>
+      <div class="tag-list">
+        <span class="tag-pill">kdrama 2026</span>
+        <span class="tag-pill">Park Hae-young</span>
+        <span class="tag-pill">JTBC</span>
+        <span class="tag-pill">Netflix</span>
+        <span class="tag-pill">Koo Kyo-hwan</span>
+        <span class="tag-pill">Go Youn-jung</span>
+        <span class="tag-pill">episodio 2</span>
+      </div>
+    </div>
+
+    <div class="sidebar-block">
+      <div class="sidebar-title">Gli episodi</div>
+      <div class="info-row"><span class="info-label"><a href="ep1-il-nostro-meglio.html" style="color:var(--ink-muted);text-decoration:none;">Ep. 1 — Il peso di vent'anni</a></span><span class="info-val" style="color:var(--accent);">8</span></div>
+      <div class="info-row"><span class="info-label" style="color:var(--ink);font-weight:500;">Ep. 2 — Tutto ciò che non diciamo</span><span class="info-val" style="color:var(--accent);">8.5</span></div>
+      <div class="info-row"><span class="info-label">Ep. 3</span><span class="info-val" style="color:var(--ink-muted);">—</span></div>
+      <div class="info-row"><span class="info-label">Ep. 4</span><span class="info-val" style="color:var(--ink-muted);">—</span></div>
+    </div>
+  </aside>
+</article>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="footer-logo">Fotogrammi Coreani</div>
+  <p class="footer-tagline">Recensioni di kdrama. Frame dopo frame, emozione dopo emozione.</p>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">Reddit</a>
+    <a href="#">Newsletter</a>
+    <a href="#">Chi sono</a>
+  </div>
+  <p class="footer-copy">© 2026 Fotogrammi Coreani</p>
+</footer>
+
+</body>
+</html>
